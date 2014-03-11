@@ -1,4 +1,7 @@
 # Project related
+_site/
+
+# Components
 bower_components/
 node_modules/
 !.gitignore

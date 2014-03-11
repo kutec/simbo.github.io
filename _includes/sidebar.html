@@ -1,0 +1,15 @@
+<h3>Demos</h3>
+<ul>
+	{% for demo in site.demos %}
+		<li><a href="{{ demo.url }}">{{ demo.name }}</a></li>
+	{% endfor %}
+</ul>
+<h3>Posts</h3>
+<ul>
+	{% for post in site.posts %}
+		<li>
+			<a href="{{ post.url }}">{{ post.title }}</a>
+			{{ post.excerpt }}
+		</li>
+	{% endfor %}
+</ul>

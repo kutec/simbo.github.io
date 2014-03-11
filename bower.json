@@ -1,0 +1,35 @@
+{
+	"name": "simbo.github.io",
+	"version": "0.1.0",
+	"description": "Simbo's Github Page",
+	"homepage": "https://github.com/simbo/simbo.github.io",
+	"authors": [
+		{
+			"name": "Simon Lepel",
+			"email": "hallo@simonlepel.de",
+			"homepage": "http://simonlepel.de/"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/simbo/simbo.github.io.git"
+	},
+	"license": {
+		"type": "GPLv3",
+		"url": "https://www.gnu.org/licenses/gpl.txt"
+	},
+	"private": true,
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"devDependencies": {
+		"jquery": "1.11.0",
+		"font-awesome": "~4.0.3",
+		"normalize-css": "~3.0.0",
+		"pygments-css": "richleland/pygments-css"
+	}
+}

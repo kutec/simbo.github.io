@@ -1,0 +1,12 @@
+<article class="hentry">
+	<header>
+		<h1 class="entry-title">{{ article_title }}</h1>
+		<time class="published" datetime="{{ article_date | date_to_xmlschema }}">{{ article_date | date: "%A, %d %B %Y" }}</time>
+		<p class="byline author vcard">by <span class="fn">{{ site.author.name }}</span></p>
+	</header>
+	<div class="entry-content">
+		{{ article_content }}
+	</div>
+	<footer>
+	</footer>
+</article>

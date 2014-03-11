@@ -1,0 +1,1 @@
+{"version":3,"file":"scripts.min.js","sources":["scripts.js"],"names":["$","document","ready","each","this","on","click","ev","preventDefault","toggleClass","jQuery"],"mappings":"CAAA,SAAUA,GACRA,EAAEC,UAAUC,MAAM,WAChBF,EAAE,yBAAyBG,KAAK,WAC9BH,EAAEI,MAAMC,IACNC,MAAO,SAASC,GACdA,EAAGC,eACHR,EAAE,QAAQS,YAAY,4BAK7BC"}

@@ -1,0 +1,122 @@
+# ==============================================================================
+# Main config
+# ==============================================================================
+
+source:        .
+destination:   ./_site
+plugins:       ./_plugins
+layouts:       ./_layouts
+markdown:      redcarpet
+timezone:      Europe/Berlin
+encoding:      utf-8
+permalink:     /:year/:month/:title.html
+paginate:      1
+paginate_path: :num
+
+redcarpet:
+  extensions:
+    - fenced_code_blocks
+    - no_intra_emphasis
+    - tables
+    - autolink
+    - disable_indented_code_blocks
+    - strikethrough
+    - lax_spacing
+    - space_after_headers
+    - superscript
+    - underline
+    - highlight
+    - quote
+    - footnotes
+    - with_toc_data
+    - prettify
+
+# ==============================================================================
+# Include/exclude files
+# ==============================================================================
+
+include:
+  - .htaccess
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - node_modules
+  - Gruntfile.js
+  - bower.json
+  - bower_components
+  - "*.sublime-workspace"
+  - "*.sublime-project"
+
+# ==============================================================================
+# Assets
+# ==============================================================================
+
+assets:
+  styles:
+    - id:  google-fonts
+      src: "//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Inconsolata:400,700"
+    - id:  site-styles
+      src: /assets/css/styles.min.css
+  scripts:
+    - id:  jquery
+      src: //ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js
+      alt: /assets/js/vendor/jquery.min.js
+    - id:  site-scripts
+      src: /assets/js/scripts.min.js
+
+# ==============================================================================
+# Custom vars
+# ==============================================================================
+
+title: Simbo's Log
+description: Notes on living in front of a screen
+author:
+  name:    Simon Lepel
+  email:   hallo@simonlepel.de
+  github:  simbo
+  twitter: simbo23
+
+url:             http://simbo.github.io
+archive_path:    /archive.html
+categories_path: /categories.html
+tags_path:       /tags.html
+atom_path:       /atom.xml
+rss_path:        /rss.xml
+
+# ==============================================================================
+# Demos
+# ==============================================================================
+
+demos:
+  -
+    name:   HAL 9000
+    url:    /demo/hal9000/
+
+
+# future:      true
+# show_drafts: nil
+# limit_posts: 0
+# highlighter: pygments
+
+# relative_permalinks: true
+
+# permalink:     date
+# paginate_path: 'page:num'
+# paginate:      nil
+
+# markdown:      kramdown
+# markdown_ext:  markdown,mkdown,mkdn,mkd,md
+# textile_ext:   textile
+
+# excerpt_separator: "\n\n"
+
+# safe:        false
+# watch:       false    # deprecated
+# server:      false    # deprecated
+# host:        0.0.0.0
+# port:        4000
+# baseurl:     /
+# url:         http://localhost:4000
+# lsi:         false

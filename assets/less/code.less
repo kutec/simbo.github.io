@@ -1,0 +1,83 @@
+/* =============================================================================
+   Monospace font for all code related tags
+   ========================================================================== */
+
+code,
+pre,
+samp {
+  font-family: @font-family-monospace;
+}
+
+/* =============================================================================
+   Inline code
+   ========================================================================== */
+
+code {
+	padding: .2em .3em;
+	white-space: nowrap;
+	background: #ddd;
+	border-radius: .2em;
+}
+
+/* =============================================================================
+   Codeblocks
+   ========================================================================== */
+
+pre {
+	display: block;
+	word-break: break-all;
+	word-wrap: break-word;
+	padding: .4em .8rem;
+	background: #fff;
+	color: #444;
+	border-radius: .2em;
+	box-shadow: 0 0 .8em fade(#000, 25%) inset;
+
+	&.scroll {
+		max-height: 400px;
+		overflow-y: scroll;
+	}
+
+	code {
+		padding: 0;
+		font-size: inherit;
+		color: inherit;
+		white-space: pre-wrap;
+		background-color: transparent;
+	}
+
+}
+
+/* =============================================================================
+   Keyboard key style for KBD tags
+   ========================================================================== */
+
+kbd {
+	display: inline-block;
+	min-width: 1em;
+	padding: .2em .2em;
+	font-weight: 400;
+	font-family: "Lucida Grande", Lucida, Arial, sans-serif;
+	text-transform: uppercase;
+	line-height: 1em;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+	cursor: default;
+	color: #fff;
+	background: #444;
+	border-radius: .3em;
+
+	&[title] {
+		cursor: help;
+	}
+
+}
+
+/* =============================================================================
+   Pygments highlighting
+   ========================================================================== */
+
+.highlight {
+	@import 'vendor/pygments-css/github';
+}

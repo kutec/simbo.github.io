@@ -1,0 +1,41 @@
+/* =============================================================================
+   Basic styles
+   ========================================================================== */
+
+* {
+
+	&, &:before, &:after {
+		box-sizing: border-box;
+	}
+
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+a {
+	color: @brand-primary;
+	text-decoration: none;
+
+	&:hover, &:focus {
+		color: #06d;
+		text-decoration: underline;
+	}
+
+}
+
+a, button, input {
+
+	&:focus {
+		outline: none;
+	}
+
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}

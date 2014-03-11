@@ -1,20 +1,35 @@
 {
   "name": "simbo.github.io",
-  "version": "0.0.1",
-  "description": "Simbos Github Page",
+  "version": "0.1.0",
+  "description": "Simbo's Github Page",
   "author": {
     "name": "Simon Lepel",
     "email": "hallo@simonlepel.de",
-    "url": "http://simonlepel.de"
+    "url": "http://simonlepel.de/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simbo/simbo.github.io.git"
   },
   "license": {
-    "type": "GPL"
+    "type": "GPLv3",
+    "url": "https://www.gnu.org/licenses/gpl.txt"
   },
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-less": "~0.10.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-notify": "~0.2.17",
-    "grunt-autoprefixer": "~0.7.2"
+    "grunt": "*",
+    "load-grunt-tasks": "*",
+    "grunt-update-json": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-less": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-jekyll": "*",
+    "grunt-concurrent": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-notify": "*",
+    "bower": "*"
   }
 }
