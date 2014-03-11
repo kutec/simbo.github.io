@@ -2224,7 +2224,7 @@ body {
   z-index: 1001;
   padding: 0 .5rem;
   height: 50px;
-  line-height: 1em;
+  line-height: 50px;
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
@@ -2241,7 +2241,6 @@ body {
 .banner a {
   display: inline-block;
   vertical-align: top;
-  line-height: 50px;
   font-size: 32px;
   font-weight: 600;
 }
@@ -2251,7 +2250,7 @@ body {
   width: 11.5em;
   line-height: 16px;
   font-size: 11px;
-  font-weight: 200;
+  font-weight: 300;
   white-space: normal;
   text-transform: uppercase;
   text-align: justify;
@@ -2279,6 +2278,21 @@ body {
    Main containers - mobile screens
    ========================================================================== */
 @media (max-width: 767px) {
+  .banner {
+    text-align: left;
+    line-height: 33.33333333px;
+  }
+  .banner a {
+    font-size: 26px;
+  }
+  .banner p {
+    display: block;
+    width: auto;
+    margin: 0;
+  }
+  .banner p:after {
+    display: none;
+  }
   .main {
     padding: .5rem;
   }
@@ -2289,7 +2303,6 @@ body {
 @media (max-width: 991px) {
   .banner {
     width: 100%;
-    padding: 0;
   }
   .banner p {
     -webkit-box-sizing: content-box;
@@ -2320,11 +2333,11 @@ body {
 @media (min-width: 992px) and (max-width: 1199px) {
   .banner,
   .sidebar {
-    width: 336px;
+    width: 341px;
   }
   .main {
     padding: 1rem 1.5rem 1.5rem 1.5rem;
-    margin-left: 336px;
+    margin-left: 341px;
   }
 }
 /* =============================================================================
@@ -2337,7 +2350,7 @@ body {
   }
   .main {
     padding: 1rem 2rem 2rem 2rem;
-    margin-left: 28%;
+    margin-left: 28.5%;
   }
 }
 /* =============================================================================
@@ -2346,11 +2359,11 @@ body {
 @media (min-width: 1600px) {
   .banner,
   .sidebar {
-    width: 448px;
+    width: 456px;
   }
   .main {
     padding: 1rem 2rem 2rem 2rem;
-    margin-left: 448px;
+    margin-left: 456px;
   }
 }
 /* =============================================================================
