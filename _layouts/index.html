@@ -3,10 +3,6 @@
 ---
 {% include alpha.html %}
 {% for post in paginator.posts %}
-    {% assign article_title = post.title %}
-    {% assign article_date = post.date %}
-    {% assign article_content = post.content %}
-    {% assign article_url = post.url %}
     {% include article.html %}
 {% endfor %}
 {% include omega.html %}

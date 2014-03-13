@@ -2574,57 +2574,57 @@ body {
 .pagination:after {
   clear: both;
 }
-.pagination .next,
-.pagination .prev {
+.pagination .left,
+.pagination .right {
   height: 2.5rem;
   color: #fff;
 }
-.pagination .next .fa:before,
-.pagination .prev .fa:before {
+.pagination .left .fa:before,
+.pagination .right .fa:before {
   display: inline-block;
   width: 1rem;
   text-align: center;
 }
-.pagination .next .entry-title,
-.pagination .prev .entry-title {
+.pagination .left .entry-title,
+.pagination .right .entry-title {
   display: none;
 }
-.pagination .next:hover,
-.pagination .prev:hover {
+.pagination .left:hover,
+.pagination .right:hover {
   text-decoration: none;
 }
-.pagination .next:hover .entry-title,
-.pagination .prev:hover .entry-title {
+.pagination .left:hover .entry-title,
+.pagination .right:hover .entry-title {
   display: block;
   font-size: .7rem;
   font-weight: 300;
 }
-.pagination .next:hover .label,
-.pagination .prev:hover .label {
+.pagination .left:hover .label,
+.pagination .right:hover .label {
   text-decoration: underline;
 }
-.pagination .next.disabled,
-.pagination .prev.disabled {
+.pagination .left.disabled,
+.pagination .right.disabled {
   cursor: default;
   color: rgba(255, 255, 255, 0.4);
 }
-.pagination .next {
+.pagination .right {
   float: left;
 }
-.pagination .next .entry-title {
+.pagination .right .entry-title {
   margin-left: 1.4rem;
 }
-.pagination .next .fa {
+.pagination .right .fa {
   padding-right: .4rem;
 }
-.pagination .prev {
+.pagination .left {
   float: right;
   text-align: right;
 }
-.pagination .prev .entry-title {
+.pagination .left .entry-title {
   margin-right: 1.4rem;
 }
-.pagination .prev .fa {
+.pagination .left .fa {
   padding-left: .4rem;
 }
 /*# sourceMappingURL=styles.min.css.map */

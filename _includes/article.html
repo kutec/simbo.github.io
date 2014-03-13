@@ -1,3 +1,14 @@
+{% if page.layout == "index" %}
+    {% assign article_title = post.title %}
+    {% assign article_date = post.date %}
+    {% assign article_content = post.content %}
+    {% assign article_url = post.url %}
+{% elsif page.layout == "post" or page.layout == "page" %}
+    {% assign article_title = page.title %}
+    {% assign article_date = page.date %}
+    {% assign article_content = content %}
+    {% assign article_url = page.url %}
+{% endif %}
 <article class="hentry">
     <header>
         <h1 class="entry-title">

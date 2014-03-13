@@ -1,6 +1,55 @@
-        {% include footer.html %}
+        <footer class="site-footer">
+            {% if page.layout == "index" %}
+                {% assign pagination_next = '<span class="fa fa-chevron-left"></span>Older Posts' %}
+                {% assign pagination_prev = 'Newer Posts<span class="fa fa-chevron-right"></span>' %}
+                <div class="pagination">
+                    {% if paginator.previous_page %}
+                        <a class="left" href="{{ paginator.previous_page_path }}">{{ pagination_prev }}</a>
+                    {% else %}
+                        <span class="left disabled">{{ pagination_prev }}</span>
+                    {% endif %}
+                    {% if paginator.next_page %}
+                        <a class="right" href="{{ paginator.next_page_path }}">{{ pagination_next }}</a>
+                    {% else %}
+                        <span class="right disabled">{{ pagination_next }}</span>
+                    {% endif %}
+                </div>
+            {% elsif page.layout == "post" %}
+                {% assign pagination_next = 'Next Post<span class="fa fa-chevron-right"></span>' %}
+                {% assign pagination_prev = '<span class="fa fa-chevron-left"></span>Previous Post' %}
+                <div class="pagination">
+                    {% if page.next %}
+                        <a class="left" href="{{ page.next.url }}">
+                            <span class="label">{{ pagination_next }}</span>
+                            <span class="entry-title">&bdquo;{{ page.next.title }}&ldquo;</span>
+                        </a>
+                    {% else %}
+                        <span class="left disabled">{{ pagination_next }}</span>
+                    {% endif %}
+                    {% if page.previous %}
+                        <a class="right" href="{{ page.previous.url }}">
+                            <span class="label">{{ pagination_prev }}</span>
+                            <span class="entry-title">&bdquo;{{ page.previous.title }}&ldquo;</span>
+                        </a>
+                    {% else %}
+                        <span class="right disabled">{{ pagination_prev }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </footer>
     </main>
-    {% include sidebar.html %}
+    <div class="sidebar" role="complementary">
+        <div class="search-posts">
+            <ul>
+                {% for post in site.posts %}
+                    <li>
+                        <a href="{{ post.url }}">{{ post.title }}</a>
+                        {{ post.excerpt | markdownify }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     {% for script in site.assets.scripts %}
         <script id="{{ script.id }}" src="{{ script.src }}"></script>
         {% if script.id == 'jquery' %}<script>window.jQuery || document.write('<script src="{{ script.alt }}"><\/script>')</script>{% endif %}

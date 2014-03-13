@@ -7,7 +7,36 @@
     {% for style in site.assets.styles %}
         <link id="{{ style.id }}" href="{{ style.src }}" rel="stylesheet" type="text/css">
     {% endfor %}
+    {% if page.layout == "index" %}
+        {% if paginator.next_page %}
+            <link rel="next" href="{{ paginator.next_page_path }}">
+        {% endif %}
+        {% if paginator.previous_page %}
+            <link rel="prev" href="{{ paginator.previous_page_path }}">
+        {% endif %}
+    {% elsif page.layout == "post" %}
+        {% if page.next %}
+            <link rel="next" href="{{ page.next.url }}">
+        {% endif %}
+        {% if page.previous %}
+            <link rel="prev" href="{{ page.previous.url }}">
+        {% endif %}
+        <link rel="index" href="/">
+    {% else %}
+        <link rel="index" href="/">
+    {% endif %}
 </head>
 <body>
-    {% include banner.html %}
+    <header class="banner" role="banner">
+        <div class="wrap">
+            <h1 class="site-title"><a href="/">{{ site.title }}</a></h1>
+            <p class="site-description">{{ site.description }}</p>
+        </div>
+        <button type="button" role="button" class="sidebar-toggle">
+            <em class="sr-only">Toggle menu</em>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </header>
     <main role="main">
