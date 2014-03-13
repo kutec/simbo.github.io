@@ -27,7 +27,7 @@
 		"tests"
 	],
 	"devDependencies": {
-		"jquery": "1.11.0",
+		"jquery": "2.1.0",
 		"font-awesome": "~4.0.3",
 		"normalize-css": "~3.0.0",
 		"pygments-css": "richleland/pygments-css"

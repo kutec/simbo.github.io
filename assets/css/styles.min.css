@@ -1763,7 +1763,7 @@ body {
   font-size: 1em;
 }
 a {
-  color: #428bca;
+  color: #0769ad;
   text-decoration: none;
 }
 a:hover,
@@ -2310,7 +2310,7 @@ article .entry-content object {
    Base
    ========================================================================== */
 body {
-  background: #428bca;
+  background: #0769ad;
 }
 /* =============================================================================
    Main containers - all screen sizes
@@ -2320,7 +2320,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: #428bca;
+  background: #0769ad;
 }
 .banner,
 .sidebar,
@@ -2441,7 +2441,7 @@ body {
     left: 0;
   }
   main {
-    padding-top: 50px;
+    padding: 50px 0 1.5rem 0;
   }
 }
 /* =============================================================================
@@ -2499,7 +2499,7 @@ body {
   display: block;
   padding: 5px;
   border: 1px solid #fff;
-  background: #428bca;
+  background: #0769ad;
   border-radius: 2px;
 }
 .sidebar-toggle .icon-bar {

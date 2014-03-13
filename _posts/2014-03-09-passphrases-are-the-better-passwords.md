@@ -21,4 +21,4 @@ To store your authentication information and other sensitive data including file
 
 Nevertheless, there may be some people who can remember complicated passwords...
 
-<iframe width="420" height="315" src="//www.youtube.com/embed/rAUVUUhf7U0?html5=1&start=17" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/rAUVUUhf7U0?html5=1&amp;start=17" allowfullscreen></iframe>
