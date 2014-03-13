@@ -1,12 +1,24 @@
 <article class="hentry">
-	<header>
-		<h1 class="entry-title">{{ article_title }}</h1>
-		<time class="published" datetime="{{ article_date | date_to_xmlschema }}">{{ article_date | date: "%A, %d %B %Y" }}</time>
-		<p class="byline author vcard">by <span class="fn">{{ site.author.name }}</span></p>
-	</header>
-	<div class="entry-content">
-		{{ article_content }}
-	</div>
-	<footer>
-	</footer>
+    <header>
+        <h1 class="entry-title">
+            {% if page.layout == "post" %}
+                {{ article_title }}
+            {% else %}
+                <a href="{{ article_url }}" rel="bookmark">{{ article_title }}</a>
+            {% endif %}
+        </h1>
+        <div class="entry-meta">
+            <time class="published" datetime="{{ article_date | date_to_xmlschema }}">
+                <span class="fa fa-calendar"></span>
+                {{ article_date | date: "%A, %d %B %Y" }}
+            </time>
+            <p class="byline author vcard">
+                <span class="fa fa-pencil"></span>
+                by <span class="fn">{{ site.author.name }}</span>
+            </p>
+        </div>
+    </header>
+    <div class="entry-content">
+        {{ article_content }}
+    </div>
 </article>

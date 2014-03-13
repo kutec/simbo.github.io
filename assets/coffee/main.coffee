@@ -1,14 +1,21 @@
+# anonymous wrapper and dom-ready
+
 (($) ->
     $(document).ready ->
 
-        $('.sidebar-toggle:first').each ->
-            $(this).on
-                click: (ev)->
-                    ev.preventDefault
-                    $('body').toggleClass 'sidebar-expanded'
-                    return
-            return
-        return
+        # Button: toggle sidebar
 
-    return
+        $('.sidebar-toggle:first').on
+            click: (ev) ->
+                ev.preventDefault
+                $('body').toggleClass 'sidebar-expanded'
+
+        # open external links in new tab
+
+        $('a[href^="http://"]').each ->
+            if !( ( new RegExp '/'+window.location.host+'/' ).test this.href )
+                $(this).attr 'target', '_blank'
+
+        # end of dom-ready
+
 )(jQuery)

@@ -10,7 +10,7 @@ markdown:      redcarpet
 timezone:      Europe/Berlin
 encoding:      utf-8
 permalink:     /:year/:month/:title.html
-paginate:      1
+paginate:      3
 paginate_path: :num
 
 redcarpet:

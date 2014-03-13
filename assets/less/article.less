@@ -2,19 +2,42 @@
    Article
    ========================================================================== */
 
-.hentry {
+article {
+    position: relative;
+    background: #fff;
+
+    + article {
+        margin-top: 2rem;
+    }
 
     header {
+        background: #eee;
+        margin-bottom: 1rem;
 
         .entry-title {
-
+            line-height: 1.2em;
+            margin: 0;
         }
 
-        time {
+        .entry-meta {
 
-        }
+            .fa {
+                color: #999;
+                padding-right: .2em;
+            }
 
-        .author {
+            time,
+            .author {
+                .small;
+                color: #666;
+                font-weight: 300;
+            }
+
+            .author {
+                display: inline;
+                margin: 0;
+                padding-left: .75rem;
+            }
 
         }
 
@@ -22,11 +45,57 @@
 
     .entry-content {
 
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        iframe, object {
+            max-width: 100%;
+        }
+
     }
 
-    footer {
+    .screen-sm-max({
 
-    }
+        header {
 
+            .entry-title {
+                padding: .8rem 1rem 0 1rem;
+            }
+
+            .entry-meta {
+                padding: .4rem 1rem;
+            }
+
+        }
+
+        .entry-content {
+            padding: 0 1rem 1rem 1rem;
+        }
+
+    });
+
+    .screen-md-min({
+        border-radius: 4px;
+
+        header {
+            border-radius: 4px 4px 0 0;
+
+            .entry-title {
+                padding: .9rem 1.5rem 0 1.5rem;
+            }
+
+            .entry-meta {
+                padding: .4rem 1.5rem;
+            }
+
+        }
+
+        .entry-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+    });
 
 }

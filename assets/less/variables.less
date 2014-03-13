@@ -23,11 +23,10 @@
 @font-family-monospace:        Inconsolata, Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:             @font-family-sans-serif;
 
-@font-size-base:               18px;
-@font-size-xs:                 floor(( @font-size-base * .85 ));
-@font-size-sm:                 floor(( @font-size-base * .9 ));
-@font-size-md:                 floor(( @font-size-base * .95 ));
-@font-size-lg:                 @font-size-base;
+@font-size-xs:                 unit((100/16 * 15),%);
+@font-size-sm:                 unit((100/16 * 16),%);
+@font-size-md:                 unit((100/16 * 17),%);
+@font-size-lg:                 unit((100/16 * 18),%);
 
 @font-color-base:              #333;
 
@@ -59,9 +58,9 @@
 @screen-lg-max:                ( @screen-xl-min - 1 );
 
 /* =============================================================================
-   Header banner
+   Main containers
    ========================================================================== */
 
 @banner-height:                50px;
 @banner-background:            @brand-primary;
-
+@sidebar-width:                28.5%; // % of large screen

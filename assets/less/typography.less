@@ -2,23 +2,10 @@
    Base
    ========================================================================== */
 
-html {
-    .screen({
-        font-size: @font-size-xs;
-    },{
-        font-size: @font-size-sm;
-    },{
-        font-size: @font-size-md;
-    },{
-        font-size: @font-size-lg;
-    });
-}
-
 body {
     font-family: @font-family-sans-serif;
     line-height: @line-height-base;
     color: @font-color-base;
-    font-size: 1rem;
 }
 
 /* =============================================================================
@@ -30,6 +17,7 @@ p, address,
 ul, ol, dl,
 pre,
 table,
+blockquote,
 iframe, object {
     margin: 0 0 @spacing-vertical 0;
 }
@@ -77,14 +65,65 @@ h6 {
    ========================================================================== */
 
 strong {
-    font-weight: 700;
+    font-weight: 900;
 }
 
+.small,
 small {
-    font-size: .85rem;
+    font-size: .7rem;
 }
 
 abbr[title] {
     cursor: help;
     border-bottom: 1px dotted @font-color-base;
+}
+
+del, strike {
+    color: #808080;
+    padding: .2em;
+}
+
+/* =============================================================================
+   Quotes
+   ========================================================================== */
+
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    position: relative;
+    padding: .4rem .6rem;
+    color: #666;
+    font-style: italic;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+
+    p:last-of-type {
+        margin: 0;
+    }
+
+    code {
+        font-style: normal;
+    }
+
+    cite {
+        display: block;
+        margin: @spacing-vertical 0 0 0;
+        font-style: normal;
+        font-weight: 300;
+        .small;
+
+        &:before {
+            content: '\f10e';
+            font-family: FontAwesome;
+            padding-right: .4em;
+            color: #999;
+        }
+
+        &, a {
+            color: #666;
+        }
+    }
+
 }

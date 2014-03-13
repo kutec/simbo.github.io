@@ -3,11 +3,9 @@
    ========================================================================== */
 
 * {
-
     &, &:before, &:after {
         box-sizing: border-box;
     }
-
 }
 
 html,
@@ -15,12 +13,27 @@ body {
     min-height: 100%;
 }
 
+html {
+    .screen({
+        font-size: @font-size-xs;
+    },{
+        font-size: @font-size-sm;
+    },{
+        font-size: @font-size-md;
+    },{
+        font-size: @font-size-lg;
+    });
+}
+
+body {
+    font-size: 1em;
+}
+
 a {
     color: @brand-primary;
     text-decoration: none;
 
     &:hover, &:focus {
-        color: #06d;
         text-decoration: underline;
     }
 

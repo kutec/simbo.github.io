@@ -2,12 +2,11 @@
 layout: post
 title: External repositories within your GitHub page
 ---
-Using submodules you can include external repositories into your repository.
+Using git submodules you can include external repositories into your repository.
 I'm using this technique to include demos of some of my projects into my GitHub page.
 Here's a quick overview on how to manage this.
 
-> Make sure you use the `https://` read-only URL for your submodules, including nested submodules. You can make this change in your *.gitmodules* file.
->
+> Make sure you use the `https://` read-only URL for your submodules, including nested submodules. You can make this change in your *.gitmodules* file.  
 > Submodules must also be served from public repositories, as the Pages server cannot access private repositories.
 > <cite>[GitHub Help: Using submodules in pages](https://help.github.com/articles/using-submodules-with-pages)</cite>
 

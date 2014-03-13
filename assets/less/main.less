@@ -3,7 +3,7 @@
    ========================================================================== */
 
 body {
-    background: #fff;
+    background: @brand-primary;
 }
 
 /* =============================================================================
@@ -32,20 +32,21 @@ body {
     z-index: 1001;
     padding: 0 .5rem;
     height: @banner-height;
-    line-height: @banner-height;
     overflow: hidden;
     white-space: nowrap;
     text-align: center;
     letter-spacing: .05em;
 
-    a {
+    .site-title {
         display: inline-block;
+        line-height: @banner-height;
         vertical-align: top;
         font-size: 32px;
         font-weight: 600;
+        margin: 0;
     }
 
-    p {
+    .site-description {
         display: inline-block;
         margin: ceil((@banner-height / 6)) 0 0 10px;
         width: 11.5em;
@@ -70,14 +71,12 @@ body {
     z-index: 1000;
     padding: (@banner-height + 10px) .5rem 0 .5rem;
     height: 100%;
-    overflow: hidden auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-.sidebar-expanded {
-    overflow: hidden;
-}
-
-.main {
+.site-footer {
+    .clearfix;
 }
 
 /* =============================================================================
@@ -87,17 +86,18 @@ body {
 .screen-xs({
 
     .banner {
-        text-align: left;
-        line-height: (@banner-height * 2/3);
 
-        a {
-            font-size: 26px;
+        .site-title {
+            line-height: ((@banner-height - 4) * 2/3 + 2);
+            font-size: 24px;
         }
 
-        p {
+        .site-description {
             display: block;
             width: auto;
             margin: 0;
+            line-height: floor(((@banner-height - 4) / 3));
+            white-space: nowrap;
 
             &:after {
                 display: none;
@@ -106,24 +106,29 @@ body {
         }
     }
 
-    .main {
-        padding: .5rem;
-    }
+});
+
+/* =============================================================================
+   Main containers - tablet screens
+   ========================================================================== */
+
+.screen-sm({
 
 });
 
 /* =============================================================================
-   Main containers - tablet screens and smaller
+   Main containers - tablet screens and mobile screens
    ========================================================================== */
 
 .screen-sm-max({
 
     .banner {
         width: 100%;
+        padding: 0 1rem;
+        text-align: left;
 
-        p {
-            box-sizing: content-box;
-            padding-right: 42px;
+        .wrap {
+            padding-right: 42px; // toggle-button width + 10
         }
 
     }
@@ -139,8 +144,8 @@ body {
         }
     }
 
-    .main {
-        padding: (@banner-height + 10px) 1rem 1rem 1rem;
+    main {
+        padding-top: (@banner-height);
     }
 
 });
@@ -153,12 +158,12 @@ body {
 
     .banner,
     .sidebar {
-        width: floor((@screen-lg * .285));
+        width: floor((@screen-lg * unit(@sidebar-width)/100));
     }
 
-    .main {
-        padding: 1rem 1.5rem 1.5rem 1.5rem;
-        margin-left: floor((@screen-lg * .285));
+    main {
+        margin-left: floor((@screen-lg * unit(@sidebar-width)/100));
+        padding: 1.5rem;
     }
 
 });
@@ -171,12 +176,23 @@ body {
 
     .banner,
     .sidebar {
-        width: 28%;
+        width: @sidebar-width;
     }
 
-    .main {
-        padding: 1rem 2rem 2rem 2rem;
-        margin-left: 28.5%;
+    main {
+        margin-left: @sidebar-width;
+    }
+
+});
+
+/* =============================================================================
+   Main containers - large and extra-large desktop screens
+   ========================================================================== */
+
+.screen-lg-min({
+
+    main {
+        padding: 2rem;
     }
 
 });
@@ -189,12 +205,11 @@ body {
 
     .banner,
     .sidebar {
-        width: (@screen-xl * .285);
+        width: (@screen-xl * unit(@sidebar-width)/100);
     }
 
-    .main {
-        padding: 1rem 2rem 2rem 2rem;
-        margin-left: (@screen-xl * .285);
+    main {
+        margin-left: (@screen-xl * unit(@sidebar-width)/100);
     }
 
 });
@@ -210,7 +225,7 @@ body {
     display: block;
     padding: 5px;
     border: 1px solid #fff;
-    background: transparent;
+    background: @brand-primary;
     border-radius: 2px;
 
     .icon-bar {
@@ -264,5 +279,81 @@ body {
     .screen-md-min({
         display: none;
     });
+
+}
+
+/* =============================================================================
+   Pagination
+   ========================================================================== */
+
+.pagination {
+    .clearfix;
+    padding: 1.5rem 0 0 0;
+
+    .next, .prev {
+        height: 2.5rem;
+
+        & {
+            color: #fff;
+        }
+
+        .fa:before {
+            display: inline-block;
+            width: 1rem;
+            text-align: center;
+        }
+
+        .entry-title {
+            display: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            .entry-title {
+                display: block;
+                .small;
+                font-weight: 300;
+            }
+
+            .label {
+                text-decoration: underline;
+            }
+
+        }
+
+        &.disabled {
+            cursor: default;
+            color: fade(#fff, 40%);
+        }
+
+    }
+
+    .next {
+        float: left;
+
+        .entry-title {
+            margin-left: 1.4rem;
+        }
+
+        .fa {
+            padding-right: .4rem;
+        }
+
+    }
+
+    .prev {
+        float: right;
+        text-align: right;
+
+        .entry-title {
+            margin-right: 1.4rem;
+        }
+
+        .fa {
+            padding-left: .4rem;
+        }
+
+    }
 
 }

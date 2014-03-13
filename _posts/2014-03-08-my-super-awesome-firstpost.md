@@ -6,6 +6,12 @@ eins zwei drei
 
 vier
 
+<!-- MarkdownTOC depth=2 -->
+
+- headline 1
+    - headline 2
+
+<!-- /MarkdownTOC -->
 
 # headline 1
 lorem ipsum dolor
@@ -22,10 +28,10 @@ lorem ipsum dolor
 
 ~~~ python
 def yourfunction():
-	print "Hello World!"
+    print "Hello World!"
 ~~~
 
 ```
 def yourfunction():
-	print "Hello World!"
+    print "Hello World!"
 ```

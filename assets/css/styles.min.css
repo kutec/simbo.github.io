@@ -1701,13 +1701,13 @@ th {
    Screen sizes
    ========================================================================== */
 /* =============================================================================
-   Header banner
+   Main containers
    ========================================================================== */
 /* =============================================================================
    Clearfix
    ========================================================================== */
 /* =============================================================================
-   Hode text
+   Hide text
    ========================================================================== */
 .sr-only {
   position: absolute;
@@ -1719,6 +1719,9 @@ th {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+/* =============================================================================
+   Gradients with unlimited color-stops (ready to use with Autoprefixer)
+   ========================================================================== */
 /* =============================================================================
    Media queries for different screen sizes
    ========================================================================== */
@@ -1736,13 +1739,35 @@ html,
 body {
   min-height: 100%;
 }
+@media (max-width: 767px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  html {
+    font-size: 106.25%;
+  }
+}
+@media (min-width: 1200px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+body {
+  font-size: 1em;
+}
 a {
   color: #428bca;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #06d;
   text-decoration: underline;
 }
 a:focus,
@@ -1761,31 +1786,10 @@ textarea {
 /* =============================================================================
    Base
    ========================================================================== */
-@media (max-width: 767px) {
-  html {
-    font-size: 15px;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  html {
-    font-size: 16px;
-  }
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-  html {
-    font-size: 17px;
-  }
-}
-@media (min-width: 1200px) {
-  html {
-    font-size: 18px;
-  }
-}
 body {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 1.42857143;
   color: #333333;
-  font-size: 1rem;
 }
 /* =============================================================================
    Spacing of block elements
@@ -1803,6 +1807,7 @@ ol,
 dl,
 pre,
 table,
+blockquote,
 iframe,
 object {
   margin: 0 0 0.71428571rem 0;
@@ -1845,14 +1850,57 @@ h6 {
    Inline elements
    ========================================================================== */
 strong {
-  font-weight: 700;
+  font-weight: 900;
 }
+.small,
 small {
-  font-size: .85rem;
+  font-size: .7rem;
 }
 abbr[title] {
   cursor: help;
   border-bottom: 1px dotted #333333;
+}
+del,
+strike {
+  color: #808080;
+  padding: .2em;
+}
+/* =============================================================================
+   Quotes
+   ========================================================================== */
+cite {
+  font-style: italic;
+}
+blockquote {
+  position: relative;
+  padding: .4rem .6rem;
+  color: #666;
+  font-style: italic;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+}
+blockquote p:last-of-type {
+  margin: 0;
+}
+blockquote code {
+  font-style: normal;
+}
+blockquote cite {
+  display: block;
+  margin: 0.71428571rem 0 0 0;
+  font-style: normal;
+  font-weight: 300;
+  font-size: .7rem;
+}
+blockquote cite:before {
+  content: '\f10e';
+  font-family: FontAwesome;
+  padding-right: .4em;
+  color: #999;
+}
+blockquote cite,
+blockquote cite a {
+  color: #666;
 }
 /* =============================================================================
    Monospace font for all code related tags
@@ -1866,34 +1914,32 @@ samp {
    Inline code
    ========================================================================== */
 code {
-  padding: .2em .3em;
+  padding: .2em .2em;
   white-space: nowrap;
-  background: #ddd;
-  border-radius: .2em;
+  background: #eee;
+  border-radius: 2px;
 }
 /* =============================================================================
    Codeblocks
    ========================================================================== */
 pre {
   display: block;
-  word-break: break-all;
-  word-wrap: break-word;
-  padding: .4em .8rem;
-  background: #fff;
-  color: #444;
-  border-radius: .2em;
-  -webkit-box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.25) inset;
-  box-shadow: 0 0 0.8em rgba(0, 0, 0, 0.25) inset;
-}
-pre.scroll {
-  max-height: 400px;
-  overflow-y: scroll;
+  padding: .4rem;
+  color: #666;
+  border-left: 4px solid #ddd;
+  word-break: keep-all;
+  word-wrap: normal;
+  white-space: pre;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 pre code {
   padding: 0;
   font-size: inherit;
   color: inherit;
-  white-space: pre-wrap;
+  word-break: inherit;
+  word-wrap: inherit;
+  white-space: inherit;
   background-color: transparent;
 }
 /* =============================================================================
@@ -2194,11 +2240,77 @@ kbd[title] {
 /* =============================================================================
    Article
    ========================================================================== */
+article {
+  position: relative;
+  background: #fff;
+}
+article + article {
+  margin-top: 2rem;
+}
+article header {
+  background: #eee;
+  margin-bottom: 1rem;
+}
+article header .entry-title {
+  line-height: 1.2em;
+  margin: 0;
+}
+article header .entry-meta .fa {
+  color: #999;
+  padding-right: .2em;
+}
+article header .entry-meta time,
+article header .entry-meta .author {
+  font-size: .7rem;
+  color: #666;
+  font-weight: 300;
+}
+article header .entry-meta .author {
+  display: inline;
+  margin: 0;
+  padding-left: .75rem;
+}
+article .entry-content img {
+  max-width: 100%;
+  height: auto;
+}
+article .entry-content iframe,
+article .entry-content object {
+  max-width: 100%;
+}
+@media (max-width: 991px) {
+  article header .entry-title {
+    padding: .8rem 1rem 0 1rem;
+  }
+  article header .entry-meta {
+    padding: .4rem 1rem;
+  }
+  article .entry-content {
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+@media (min-width: 992px) {
+  article {
+    border-radius: 4px;
+  }
+  article header {
+    border-radius: 4px 4px 0 0;
+  }
+  article header .entry-title {
+    padding: .9rem 1.5rem 0 1.5rem;
+  }
+  article header .entry-meta {
+    padding: .4rem 1.5rem;
+  }
+  article .entry-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+}
 /* =============================================================================
    Base
    ========================================================================== */
 body {
-  background: #fff;
+  background: #428bca;
 }
 /* =============================================================================
    Main containers - all screen sizes
@@ -2224,7 +2336,6 @@ body {
   z-index: 1001;
   padding: 0 .5rem;
   height: 50px;
-  line-height: 50px;
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
@@ -2238,13 +2349,15 @@ body {
 .banner:after {
   clear: both;
 }
-.banner a {
+.banner .site-title {
   display: inline-block;
+  line-height: 50px;
   vertical-align: top;
   font-size: 32px;
   font-weight: 600;
+  margin: 0;
 }
-.banner p {
+.banner .site-description {
   display: inline-block;
   margin: 9px 0 0 10px;
   width: 11.5em;
@@ -2255,7 +2368,7 @@ body {
   text-transform: uppercase;
   text-align: justify;
 }
-.banner p:after {
+.banner .site-description:after {
   content: '';
   display: inline-block;
   width: 100%;
@@ -2269,45 +2382,49 @@ body {
   z-index: 1000;
   padding: 60px 0.5rem 0 0.5rem;
   height: 100%;
-  overflow: hidden auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
-.sidebar-expanded {
-  overflow: hidden;
+.site-footer:before,
+.site-footer:after {
+  content: " ";
+  display: table;
+}
+.site-footer:after {
+  clear: both;
 }
 /* =============================================================================
    Main containers - mobile screens
    ========================================================================== */
 @media (max-width: 767px) {
-  .banner {
-    text-align: left;
-    line-height: 33.33333333px;
+  .banner .site-title {
+    line-height: 32.66666667px;
+    font-size: 24px;
   }
-  .banner a {
-    font-size: 26px;
-  }
-  .banner p {
+  .banner .site-description {
     display: block;
     width: auto;
     margin: 0;
+    line-height: 15px;
+    white-space: nowrap;
   }
-  .banner p:after {
+  .banner .site-description:after {
     display: none;
-  }
-  .main {
-    padding: .5rem;
   }
 }
 /* =============================================================================
-   Main containers - tablet screens and smaller
+   Main containers - tablet screens
+   ========================================================================== */
+/* =============================================================================
+   Main containers - tablet screens and mobile screens
    ========================================================================== */
 @media (max-width: 991px) {
   .banner {
     width: 100%;
+    padding: 0 1rem;
+    text-align: left;
   }
-  .banner p {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
+  .banner .wrap {
     padding-right: 42px;
   }
   .sidebar {
@@ -2323,8 +2440,8 @@ body {
   .sidebar-expanded .sidebar {
     left: 0;
   }
-  .main {
-    padding: 60px 1rem 1rem 1rem;
+  main {
+    padding-top: 50px;
   }
 }
 /* =============================================================================
@@ -2333,11 +2450,11 @@ body {
 @media (min-width: 992px) and (max-width: 1199px) {
   .banner,
   .sidebar {
-    width: 341px;
+    width: 342px;
   }
-  .main {
-    padding: 1rem 1.5rem 1.5rem 1.5rem;
-    margin-left: 341px;
+  main {
+    margin-left: 342px;
+    padding: 1.5rem;
   }
 }
 /* =============================================================================
@@ -2346,11 +2463,18 @@ body {
 @media (min-width: 1200px) and (max-width: 1599px) {
   .banner,
   .sidebar {
-    width: 28%;
+    width: 28.5%;
   }
-  .main {
-    padding: 1rem 2rem 2rem 2rem;
+  main {
     margin-left: 28.5%;
+  }
+}
+/* =============================================================================
+   Main containers - large and extra-large desktop screens
+   ========================================================================== */
+@media (min-width: 1200px) {
+  main {
+    padding: 2rem;
   }
 }
 /* =============================================================================
@@ -2361,8 +2485,7 @@ body {
   .sidebar {
     width: 456px;
   }
-  .main {
-    padding: 1rem 2rem 2rem 2rem;
+  main {
     margin-left: 456px;
   }
 }
@@ -2376,7 +2499,7 @@ body {
   display: block;
   padding: 5px;
   border: 1px solid #fff;
-  background: transparent;
+  background: #428bca;
   border-radius: 2px;
 }
 .sidebar-toggle .icon-bar {
@@ -2436,5 +2559,72 @@ body {
   .sidebar-toggle {
     display: none;
   }
+}
+/* =============================================================================
+   Pagination
+   ========================================================================== */
+.pagination {
+  padding: 1.5rem 0 0 0;
+}
+.pagination:before,
+.pagination:after {
+  content: " ";
+  display: table;
+}
+.pagination:after {
+  clear: both;
+}
+.pagination .next,
+.pagination .prev {
+  height: 2.5rem;
+  color: #fff;
+}
+.pagination .next .fa:before,
+.pagination .prev .fa:before {
+  display: inline-block;
+  width: 1rem;
+  text-align: center;
+}
+.pagination .next .entry-title,
+.pagination .prev .entry-title {
+  display: none;
+}
+.pagination .next:hover,
+.pagination .prev:hover {
+  text-decoration: none;
+}
+.pagination .next:hover .entry-title,
+.pagination .prev:hover .entry-title {
+  display: block;
+  font-size: .7rem;
+  font-weight: 300;
+}
+.pagination .next:hover .label,
+.pagination .prev:hover .label {
+  text-decoration: underline;
+}
+.pagination .next.disabled,
+.pagination .prev.disabled {
+  cursor: default;
+  color: rgba(255, 255, 255, 0.4);
+}
+.pagination .next {
+  float: left;
+}
+.pagination .next .entry-title {
+  margin-left: 1.4rem;
+}
+.pagination .next .fa {
+  padding-right: .4rem;
+}
+.pagination .prev {
+  float: right;
+  text-align: right;
+}
+.pagination .prev .entry-title {
+  margin-right: 1.4rem;
+}
+.pagination .prev .fa {
+  padding-left: .4rem;
 }
 /*# sourceMappingURL=styles.min.css.map */
