@@ -4,52 +4,64 @@
 
 code,
 pre,
+var,
 samp {
   font-family: @font-family-monospace;
+  hyphens: none;
+  color: @font-color-gray;
+  background: @box-background-color;
+  border-radius: @border-radius-small;
+  box-shadow: 0 0 .4em #ddd inset;
 }
 
 /* =============================================================================
    Inline code
    ========================================================================== */
 
-code {
+code,
+var,
+samp {
+    padding: .2em .2em;
+}
+
+var,
+samp {
     padding: .2em .2em;
     white-space: nowrap;
-    background: #eee;
-    border-radius: 2px;
+    font-style: normal;
+}
+
+code {
+    padding: .2em .2em;
+    word-break: break-all;
+    word-wrap: break-word;
 }
 
 /* =============================================================================
    Codeblocks
    ========================================================================== */
 
-@pre-odd: #eee;
-@pre-even: #fff;
-
 pre {
     display: block;
     padding: .4rem;
-    color: #666;
-    border-left: 4px solid #ddd;
-    border-right: 4px solid #ddd;
+    color: @font-color-gray;
     word-break: keep-all;
     word-wrap: normal;
     white-space: pre;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    #gradient > .radial(
-        #fff 23%,
-        #f5f5f5
-    );
+    background: @box-background-color;
 
     code {
         padding: 0;
+        box-shadow: none;
+        border-radius: none;
+        background: transparent;
         font-size: inherit;
         color: inherit;
         word-break: inherit;
         word-wrap: inherit;
         white-space: inherit;
-        background-color: transparent;
     }
 
 }
@@ -61,18 +73,19 @@ pre {
 kbd {
     display: inline-block;
     min-width: 1em;
-    padding: .2em .2em;
+    padding: .25em .25em;
     font-weight: 400;
     font-family: "Lucida Grande", Lucida, Arial, sans-serif;
     text-transform: uppercase;
     line-height: 1em;
+    font-size: .85em;
     text-align: center;
     text-decoration: none;
     border: none;
     cursor: default;
     color: #fff;
-    background: #444;
-    border-radius: .3em;
+    background: @font-color-base;
+    border-radius: @border-radius-small;
 
     &[title] {
         cursor: help;

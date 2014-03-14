@@ -1,4 +1,29 @@
 /* =============================================================================
+   Base
+   ========================================================================== */
+
+html {
+    .screen({
+        font-size: @font-size-xs;
+    },{
+        font-size: @font-size-sm;
+    },{
+        font-size: @font-size-md;
+    },{
+        font-size: @font-size-lg;
+    });
+}
+
+body {
+    font-size: 1em;
+    font-family: @font-family-sans-serif;
+    line-height: @line-height-base;
+    color: @font-color-base;
+    text-rendering: optimizeLegibility;
+    hyphens: auto;
+}
+
+/* =============================================================================
    Spacing of block elements
    ========================================================================== */
 
@@ -69,76 +94,113 @@ abbr[title] {
 }
 
 del, strike {
-    color: #808080;
+    color: @font-color-gray;
     padding: .2em;
 }
 
 /* =============================================================================
-   Quotes
+   Within <main>
    ========================================================================== */
 
-cite {
-    font-style: italic;
-}
+main {
 
-blockquote {
-    position: relative;
-    padding: .4rem .6rem;
-    color: #666;
-    font-style: italic;
-    border-radius: 2px;
-    border: 1px solid #e3e3e3;
-
-    &:before,
-    &:after {
-        position: absolute;
-        top: -.25em;
-        font-family: FontAwesome;
-        font-size: 12px;
-        color: #999;
-        line-height: 1em;
-    }
-
-    &:before {
-        content: '\f10d';
-        left: -.5em;
-    }
-
-    &:after {
-        content: '\f10e';
-        right: -.5em;
-    }
-
-    p:last-of-type {
-        margin: 0;
-    }
-
-    code {
-        font-style: normal;
-    }
+    /* =============================================================================
+       Quotes
+       ========================================================================== */
 
     cite {
-        display: block;
-        margin: (@spacing-vertical / 2) 0 0 0;
-        font-style: normal;
-        font-weight: 300;
+        font-style: italic;
+    }
+
+    blockquote {
+        position: relative;
+        padding: .4rem .6rem;
+        color: @font-color-gray;
+        font-style: italic;
+        border-radius: @border-radius-small;
+        border: 1px solid #ddd;
+
+        &:before,
+        &:after {
+            position: absolute;
+            top: -.25em;
+            font-family: FontAwesome;
+            font-size: 12px;
+            line-height: 1em;
+        }
 
         &:before {
-            content: '\2014';
-            color: #999;
-            padding: 0 .75em 0 .25em;
+            content: '\f10d';
+            left: -.5em;
         }
 
-        .small;
+        &:after {
+            content: '\f10e';
+            right: -.5em;
+        }
 
-        &, a {
-            color: #666;
+        p:last-of-type {
+            margin: 0;
+        }
+
+        code {
+            font-style: normal;
+        }
+
+        cite {
+            display: block;
+            margin: (@spacing-vertical / 2) 0 0 0;
+            font-style: normal;
+            font-weight: 300;
+
+            &:before {
+                content: '\2014';
+                padding: 0 .75em 0 .25em;
+            }
+
+            .small;
+
+            &, a {
+                color: @font-color-gray;
+            }
+        }
+
+        p + p cite {
+            margin-top: @spacing-vertical;
+        }
+
+
+    }
+
+    /* =============================================================================
+       Lists
+       ========================================================================== */
+
+    ul {
+        list-style-type: none;
+        padding-left: 1.5em;
+
+        li {
+            position: relative;
+
+            &:before {
+                content: '\f0da';
+                position: absolute;
+                top: 0;
+                left: -.8em;
+                font-family: FontAwesome;
+                color: @font-color-gray;
+            }
+
         }
     }
 
-    p + p cite {
-        margin-top: @spacing-vertical;
+    ol {
+        padding-left: 1.5em;
     }
 
+/* =============================================================================
+   End of within <main>
+   ========================================================================== */
 
 }

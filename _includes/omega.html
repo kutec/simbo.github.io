@@ -4,18 +4,18 @@
                 {% assign pagination_prev = 'Newer Posts<span class="fa fa-chevron-right"></span>' %}
                 <div class="pagination">
                     {% if paginator.previous_page %}
-                        <a class="left" href="{{ paginator.previous_page_path }}">
+                        <a class="right" href="{{ paginator.previous_page_path }}">
                             <span class="label">{{ pagination_prev }}</span>
                         </a>
                     {% else %}
-                        <span class="left disabled" title="There are no older posts&hellip;">{{ pagination_prev }}</span>
+                        <span class="right disabled" title="There are no newer posts&hellip;">{{ pagination_prev }}</span>
                     {% endif %}
                     {% if paginator.next_page %}
-                        <a class="right" href="{{ paginator.next_page_path }}">
+                        <a class="left" href="{{ paginator.next_page_path }}">
                             <span class="label">{{ pagination_next }}</span>
                         </a>
                     {% else %}
-                        <span class="right disabled" title="There are no newer posts&hellip;">{{ pagination_next }}</span>
+                        <span class="left disabled" title="There are no older posts&hellip;">{{ pagination_next }}</span>
                     {% endif %}
                 </div>
             {% elsif page.layout == "post" %}
@@ -23,20 +23,20 @@
                 {% assign pagination_prev = '<span class="fa fa-chevron-left"></span>Previous Post' %}
                 <div class="pagination">
                     {% if page.next %}
-                        <a class="left" href="{{ page.next.url }}">
+                        <a class="right" href="{{ page.next.url }}">
                             <span class="label">{{ pagination_next }}</span>
-                            <span class="entry-title">&bdquo;{{ page.next.title }}&ldquo;</span>
+                            <span class="entry-title">&ldquo;{{ page.next.title }}&rdquo;</span>
                         </a>
                     {% else %}
-                        <span class="left disabled" title="There is no previous post&hellip;">{{ pagination_next }}</span>
+                        <span class="right disabled" title="There is no previous post&hellip;">{{ pagination_next }}</span>
                     {% endif %}
                     {% if page.previous %}
-                        <a class="right" href="{{ page.previous.url }}">
+                        <a class="left" href="{{ page.previous.url }}">
                             <span class="label">{{ pagination_prev }}</span>
-                            <span class="entry-title">&bdquo;{{ page.previous.title }}&ldquo;</span>
+                            <span class="entry-title">&ldquo;{{ page.previous.title }}&rdquo;</span>
                         </a>
                     {% else %}
-                        <span class="right disabled" title="There is no next post&hellip;">{{ pagination_prev }}</span>
+                        <span class="left disabled" title="There is no next post&hellip;">{{ pagination_prev }}</span>
                     {% endif %}
                 </div>
             {% endif %}
@@ -44,6 +44,9 @@
     </main>
     <div class="sidebar" role="complementary">
         <div class="search-posts">
+            <input type="text" placeholder="Search&hellip;">
+        </div>
+        <div class="search-results">
             <ul>
                 {% for post in site.posts %}
                     <li>

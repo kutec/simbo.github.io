@@ -14,6 +14,16 @@
 }
 
 /* =============================================================================
+   Placeholders
+   ========================================================================== */
+
+.placeholder(@rules) {
+    &::-moz-placeholder { opacity: 1; @rules(); }
+    &:-ms-input-placeholder { @rules(); }
+    &::-webkit-input-placeholder { @rules(); }
+}
+
+/* =============================================================================
    Hide text
    ========================================================================== */
 
@@ -41,7 +51,7 @@
 }
 
 .reset-text() {
-    font-size: 1rem; // there are issues in IE10
+    font-size: 1rem; // there are issues in IE10 when using rem in 'font' property
     font-family: @font-family-base;
     line-height: @line-height-base;
 }

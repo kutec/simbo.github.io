@@ -13,32 +13,14 @@ body {
     min-height: 100%;
 }
 
-html {
-    .screen({
-        font-size: @font-size-xs;
-    },{
-        font-size: @font-size-sm;
-    },{
-        font-size: @font-size-md;
-    },{
-        font-size: @font-size-lg;
-    });
-}
-
-body {
-    background: @main-background;
-    font-family: @font-family-sans-serif;
-    line-height: @line-height-base;
-    font-size: 1em;
-    color: @font-color-base;
-}
 
 a {
-    color: @brand-primary;
+    color: @link-color;
     text-decoration: none;
 
-    &:hover, &:focus {
-        text-decoration: underline;
+    &:hover,
+    &:focus {
+        color: @link-hover-color;
     }
 
 }
@@ -55,4 +37,13 @@ input, button, select, textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    color: #000;
 }
+
+iframe {
+    border: none;
+}
+
+.placeholder({
+    color: @font-color-gray;
+});

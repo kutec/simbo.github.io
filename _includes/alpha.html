@@ -22,9 +22,29 @@
             <link rel="prev" href="{{ page.previous.url }}">
         {% endif %}
         <link rel="index" href="/">
+        <meta property="og:title" content="{{ page.title | strip_html | strip_newlines | truncate: 256 | escape }}">
+        <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 256 | escape }}">
+        <meta property="og:updated_time" content="{{ page.date }}">
     {% else %}
         <link rel="index" href="/">
     {% endif %}
+    {% if page.layout == "post" or page.layout == "page" %}
+        <meta property="og:title" content="{{ page.title | strip_html | strip_newlines | truncate: 256 | escape }}">
+        <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 256 | escape }}">
+        <meta property="og:updated_time" content="{{ page.date }}">
+        {% if page.layout == "index" %}
+            <meta property="og:type" content="article">
+        {% else %}
+            <meta property="og:type" content="website">
+        {% endif %}
+    {% else %}
+        <meta property="og:title" content="{{ site.title | truncate: 256 | escape }}">
+        <meta property="og:description" content="{{ site.description | truncate: 256 | escape }}">
+        <meta property="og:type" content="website">
+    {% endif %}
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:locale" content="en">
+    <meta property="og:site" content="simbo.github.io">
 </head>
 <body>
     <header class="banner">

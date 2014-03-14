@@ -4,39 +4,44 @@
 
 article {
     position: relative;
-    background: #fff;
+    background: @article-background-color;
 
     + article {
         margin-top: 2rem;
     }
 
     header {
-        background: #eee;
+        background: @article-meta-background-color;
         margin-bottom: 1rem;
 
         .entry-title {
             line-height: 1.2em;
             margin: 0;
+
+            a {
+                color: @font-color-base;
+
+                &:hover,
+                &:focus {
+                    color: @link-hover-color;
+                }
+            }
+
         }
 
         .entry-meta {
+            .small;
+            color: #666;
+            font-weight: 300;
 
-            .fa {
-                color: #999;
-                padding-right: .2em;
-            }
-
-            time,
-            .author {
-                .small;
-                color: #666;
-                font-weight: 300;
-            }
-
-            .author {
+            > * + * {
                 display: inline;
                 margin: 0;
                 padding-left: .75rem;
+            }
+
+            .fa {
+                padding-right: .2em;
             }
 
         }
@@ -77,10 +82,10 @@ article {
     });
 
     .screen-md-min({
-        border-radius: 4px;
+        border-radius: @border-radius-medium;
 
         header {
-            border-radius: 4px 4px 0 0;
+            border-radius: @border-radius-medium @border-radius-medium 0 0;
 
             .entry-title {
                 padding: .9rem 1.5rem 0 1.5rem;
