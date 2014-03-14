@@ -1,14 +1,4 @@
 /* =============================================================================
-   Base
-   ========================================================================== */
-
-body {
-    font-family: @font-family-sans-serif;
-    line-height: @line-height-base;
-    color: @font-color-base;
-}
-
-/* =============================================================================
    Spacing of block elements
    ========================================================================== */
 
@@ -97,7 +87,27 @@ blockquote {
     color: #666;
     font-style: italic;
     border-radius: 2px;
-    border: 1px solid #ddd;
+    border: 1px solid #e3e3e3;
+
+    &:before,
+    &:after {
+        position: absolute;
+        top: -.25em;
+        font-family: FontAwesome;
+        font-size: 12px;
+        color: #999;
+        line-height: 1em;
+    }
+
+    &:before {
+        content: '\f10d';
+        left: -.5em;
+    }
+
+    &:after {
+        content: '\f10e';
+        right: -.5em;
+    }
 
     p:last-of-type {
         margin: 0;
@@ -109,21 +119,26 @@ blockquote {
 
     cite {
         display: block;
-        margin: @spacing-vertical 0 0 0;
+        margin: (@spacing-vertical / 2) 0 0 0;
         font-style: normal;
         font-weight: 300;
-        .small;
 
         &:before {
-            content: '\f10e';
-            font-family: FontAwesome;
-            padding-right: .4em;
+            content: '\2014';
             color: #999;
+            padding: 0 .75em 0 .25em;
         }
+
+        .small;
 
         &, a {
             color: #666;
         }
     }
+
+    p + p cite {
+        margin-top: @spacing-vertical;
+    }
+
 
 }

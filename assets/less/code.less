@@ -23,16 +23,24 @@ code {
    Codeblocks
    ========================================================================== */
 
+@pre-odd: #eee;
+@pre-even: #fff;
+
 pre {
     display: block;
     padding: .4rem;
     color: #666;
     border-left: 4px solid #ddd;
+    border-right: 4px solid #ddd;
     word-break: keep-all;
     word-wrap: normal;
     white-space: pre;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    #gradient > .radial(
+        #fff 23%,
+        #f5f5f5
+    );
 
     code {
         padding: 0;

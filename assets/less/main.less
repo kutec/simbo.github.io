@@ -1,12 +1,4 @@
 /* =============================================================================
-   Base
-   ========================================================================== */
-
-body {
-    background: @brand-primary;
-}
-
-/* =============================================================================
    Main containers - all screen sizes
    ========================================================================== */
 
@@ -15,7 +7,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: @banner-background;
+    background: @main-background;
 
     &, a {
         color: #fff;
@@ -49,7 +41,7 @@ body {
     .site-description {
         display: inline-block;
         margin: ceil((@banner-height / 6)) 0 0 10px;
-        width: 11.5em;
+        width: 12em;
         line-height: floor((@banner-height / 3));
         font-size: 11px;
         font-weight: 300;
@@ -131,6 +123,10 @@ body {
             padding-right: 42px; // toggle-button width + 10
         }
 
+    }
+
+    .sidebar-expanded {
+        overflow: hidden;
     }
 
     .sidebar {
@@ -225,7 +221,7 @@ body {
     display: block;
     padding: 5px;
     border: 1px solid #fff;
-    background: @brand-primary;
+    background: @main-background;
     border-radius: 2px;
 
     .icon-bar {

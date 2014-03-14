@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Semantic blog markup using hNews
+title: Semantic blog markup using HTML5 and hNews
 ---
 Here's an example for properly formatted blog post markup using HTML5 and the hNews specification.
 
@@ -24,10 +24,12 @@ Here's an example for properly formatted blog post markup using HTML5 and the hN
     </div>
     <footer>
         <p class="source-org vcard copyright">
-            (c) 2014 <span class="org fn">THE LICENSE HOLDER</span>
+            (cc) <span class="org fn">THE LICENSE HOLDER ORG</span>
         </p>
     </footer>
 </article>
 ```
 
-More info: [hNews microformat specification](http://microformats.org/wiki/hnews)
+More info:
+- [W3C HTML 5.1 Nightly Overview](http://www.w3.org/html/wg/drafts/html/master/Overview.html)
+- [hNews microformat specification](http://microformats.org/wiki/hnews)

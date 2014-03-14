@@ -11,7 +11,7 @@ Why passphrases with random words are better than uber-complicated passwords:
 > Security at the expense of usability, comes at the expense of security.
 > <cite>[AviD on security.stackexchange.com](http://security.stackexchange.com/a/6116)</cite>
 
-That also questions the reliability of *password strength checkers*. [Read more...](http://security.stackexchange.com/a/2690)
+That also questions the reliability of password strength checkers. [Read more...](http://security.stackexchange.com/a/2690)
 
 So, choose something you can remember, instead of choosing something you have to write down. But try to be also creative...
 

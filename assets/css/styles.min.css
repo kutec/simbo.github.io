@@ -1760,7 +1760,11 @@ body {
   }
 }
 body {
+  background: #15633b url('../img/noise.png') 0 0 repeat fixed;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.42857143;
   font-size: 1em;
+  color: #333333;
 }
 a {
   color: #0769ad;
@@ -1782,14 +1786,6 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-}
-/* =============================================================================
-   Base
-   ========================================================================== */
-body {
-  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.42857143;
-  color: #333333;
 }
 /* =============================================================================
    Spacing of block elements
@@ -1877,7 +1873,24 @@ blockquote {
   color: #666;
   font-style: italic;
   border-radius: 2px;
-  border: 1px solid #ddd;
+  border: 1px solid #e3e3e3;
+}
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  top: -0.25em;
+  font-family: FontAwesome;
+  font-size: 12px;
+  color: #999;
+  line-height: 1em;
+}
+blockquote:before {
+  content: '\f10d';
+  left: -0.5em;
+}
+blockquote:after {
+  content: '\f10e';
+  right: -0.5em;
 }
 blockquote p:last-of-type {
   margin: 0;
@@ -1887,20 +1900,22 @@ blockquote code {
 }
 blockquote cite {
   display: block;
-  margin: 0.71428571rem 0 0 0;
+  margin: 0.35714286rem 0 0 0;
   font-style: normal;
   font-weight: 300;
   font-size: .7rem;
 }
 blockquote cite:before {
-  content: '\f10e';
-  font-family: FontAwesome;
-  padding-right: .4em;
+  content: '\2014';
   color: #999;
+  padding: 0 .75em 0 .25em;
 }
 blockquote cite,
 blockquote cite a {
   color: #666;
+}
+blockquote p + p cite {
+  margin-top: 0.71428571rem;
 }
 /* =============================================================================
    Monospace font for all code related tags
@@ -1927,11 +1942,16 @@ pre {
   padding: .4rem;
   color: #666;
   border-left: 4px solid #ddd;
+  border-right: 4px solid #ddd;
   word-break: keep-all;
   word-wrap: normal;
   white-space: pre;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
+  background-image: -webkit-radial-gradient(circle, #ffffff 23%, #f5f5f5);
+  background-image: -o-radial-gradient(circle, #ffffff 23%, #f5f5f5);
+  background-image: radial-gradient(circle, #ffffff 23%, #f5f5f5);
+  background-repeat: no-repeat;
 }
 pre code {
   padding: 0;
@@ -2307,12 +2327,6 @@ article .entry-content object {
   }
 }
 /* =============================================================================
-   Base
-   ========================================================================== */
-body {
-  background: #0769ad;
-}
-/* =============================================================================
    Main containers - all screen sizes
    ========================================================================== */
 .banner,
@@ -2320,7 +2334,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: #0769ad;
+  background: #15633b url('../img/noise.png') 0 0 repeat fixed;
 }
 .banner,
 .sidebar,
@@ -2360,7 +2374,7 @@ body {
 .banner .site-description {
   display: inline-block;
   margin: 9px 0 0 10px;
-  width: 11.5em;
+  width: 12em;
   line-height: 16px;
   font-size: 11px;
   font-weight: 300;
@@ -2426,6 +2440,9 @@ body {
   }
   .banner .wrap {
     padding-right: 42px;
+  }
+  .sidebar-expanded {
+    overflow: hidden;
   }
   .sidebar {
     width: 100%;
@@ -2499,7 +2516,7 @@ body {
   display: block;
   padding: 5px;
   border: 1px solid #fff;
-  background: #0769ad;
+  background: #15633b url('../img/noise.png') 0 0 repeat fixed;
   border-radius: 2px;
 }
 .sidebar-toggle .icon-bar {

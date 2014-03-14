@@ -12,21 +12,23 @@
 <article class="hentry">
     <header>
         <h1 class="entry-title">
-            {% if page.layout == "post" %}
+            {% if page.layout == "post" or page.layout == "page" %}
                 {{ article_title }}
             {% else %}
                 <a href="{{ article_url }}" rel="bookmark">{{ article_title }}</a>
             {% endif %}
         </h1>
         <div class="entry-meta">
-            <time class="published" datetime="{{ article_date | date_to_xmlschema }}">
-                <span class="fa fa-calendar"></span>
-                {{ article_date | date: "%A, %d %B %Y" }}
-            </time>
-            <p class="byline author vcard">
-                <span class="fa fa-pencil"></span>
-                by <span class="fn">{{ site.author.name }}</span>
-            </p>
+            {% if page.layout != "page" %}
+                <time class="published" datetime="{{ article_date | date_to_xmlschema }}">
+                    <span class="fa fa-calendar"></span>
+                    {{ article_date | date: "%A, %d %B %Y" }}
+                </time>
+                <p class="byline author vcard">
+                    <span class="fa fa-pencil"></span>
+                    by <span class="fn">{{ site.author.name }}</span>
+                </p>
+            {% endif %}
         </div>
     </header>
     <div class="entry-content">
