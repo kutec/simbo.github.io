@@ -10,7 +10,7 @@ First, create a symlink to subl. Paths may differ depending on your version of S
 sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 ```
 
-Now edit your `~/.bash_profile` to make sure the symlink you just created is within your <var>PATH</var and other software recognizes subl as <var>EDITOR</var.
+Now edit your `~/.bash_profile` to make sure the symlink you just created is within your <var>PATH</var> and other software recognizes subl as <var>EDITOR</var>.
 You can also add an alias for `open` to automatically use your default editor (which should of course be set to Sublime Text, i.e. via [RCDefaultApp](http://www.rubicode.com/Software/RCDefaultApp/)).
 
 ```bash

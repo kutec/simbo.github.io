@@ -1,0 +1,95 @@
+/* =============================================================================
+   Pagination
+   ========================================================================== */
+
+.pagination {
+    position: relative;
+    height: 4rem;
+
+    .left, .right {
+        position: absolute;
+        top: 1.5rem;
+        height: 2.5rem;
+        color: #fff;
+
+        .fa:before {
+            display: inline-block;
+            width: 1rem;
+            text-align: center;
+        }
+
+        .description {
+            display: none;
+        }
+
+        &:hover {
+
+            .label,
+            .description {
+                color: fade(#fff, 70%);
+            }
+
+            .description {
+                display: block;
+                .small;
+            }
+
+        }
+
+        &.disabled {
+            cursor: default;
+
+            &, &:hover {
+
+                .label {
+                    color: fade(#fff, 20%);
+                }
+
+            }
+
+        }
+
+    }
+
+    .left {
+
+        .screen-sm-max({
+            left: 1rem;
+        });
+
+        .screen-md-min({
+            left: 0;
+        });
+
+        .description {
+            margin-left: 1.4rem;
+        }
+
+        .fa {
+            padding-right: .4rem;
+        }
+
+    }
+
+    .right {
+        text-align: right;
+
+        .screen-sm-max({
+            right: 1rem;
+        });
+
+        .screen-md-min({
+            right: 0;
+        });
+
+        .description {
+            margin-right: 1.4rem;
+        }
+
+        .fa {
+            padding-left: .4rem;
+        }
+
+    }
+
+}

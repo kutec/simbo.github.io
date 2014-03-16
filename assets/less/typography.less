@@ -16,9 +16,10 @@ html {
 
 body {
     font-size: 1em;
-    font-family: @font-family-sans-serif;
+    font-family: @font-family-base;
     line-height: @line-height-base;
     color: @font-color-base;
+    font-weight: 300;
     text-rendering: optimizeLegibility;
     hyphens: auto;
 }
@@ -42,12 +43,16 @@ iframe, object {
    ========================================================================== */
 
 h1 {
-    font-weight: 900;
-    font-size: 2.2rem;
+    font-family: @font-family-headline;
+    font-weight: 400;
 }
 
 h2, h3, h4, h5, h6 {
     font-weight: 700;
+}
+
+h1 {
+    font-size: 2.2rem;
 }
 
 h2 {
@@ -79,8 +84,9 @@ h6 {
    Inline elements
    ========================================================================== */
 
+.strong,
 strong {
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .small,
@@ -96,6 +102,10 @@ abbr[title] {
 del, strike {
     color: @font-color-gray;
     padding: .2em;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 /* =============================================================================
@@ -151,7 +161,6 @@ main {
             display: block;
             margin: (@spacing-vertical / 2) 0 0 0;
             font-style: normal;
-            font-weight: 300;
 
             &:before {
                 content: '\2014';
@@ -168,7 +177,6 @@ main {
         p + p cite {
             margin-top: @spacing-vertical;
         }
-
 
     }
 

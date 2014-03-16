@@ -8,14 +8,20 @@
                             <span class="label">{{ pagination_prev }}</span>
                         </a>
                     {% else %}
-                        <span class="right disabled" title="There are no newer posts&hellip;">{{ pagination_prev }}</span>
+                        <span class="right disabled">
+                            <span class="label">{{ pagination_prev }}</span>
+                            <span class="description">There are no newer posts&hellip;</span>
+                        </span>
                     {% endif %}
                     {% if paginator.next_page %}
                         <a class="left" href="{{ paginator.next_page_path }}">
                             <span class="label">{{ pagination_next }}</span>
                         </a>
                     {% else %}
-                        <span class="left disabled" title="There are no older posts&hellip;">{{ pagination_next }}</span>
+                        <span class="left disabled">
+                            <span class="label">{{ pagination_next }}</span>
+                            <span class="description">There are no older posts&hellip;</span>
+                        </span>
                     {% endif %}
                 </div>
             {% elsif page.layout == "post" %}
@@ -25,38 +31,56 @@
                     {% if page.next %}
                         <a class="right" href="{{ page.next.url }}">
                             <span class="label">{{ pagination_next }}</span>
-                            <span class="entry-title">&ldquo;{{ page.next.title }}&rdquo;</span>
+                            <span class="description">&ldquo;{{ page.next.title }}&rdquo;</span>
                         </a>
                     {% else %}
-                        <span class="right disabled" title="There is no previous post&hellip;">{{ pagination_next }}</span>
+                        <span class="right disabled">
+                            <span class="label">{{ pagination_next }}</span>
+                            <span class="description">There is no previous post&hellip;</span>
+                        </span>
                     {% endif %}
                     {% if page.previous %}
                         <a class="left" href="{{ page.previous.url }}">
                             <span class="label">{{ pagination_prev }}</span>
-                            <span class="entry-title">&ldquo;{{ page.previous.title }}&rdquo;</span>
+                            <span class="description">&ldquo;{{ page.previous.title }}&rdquo;</span>
                         </a>
                     {% else %}
-                        <span class="left disabled" title="There is no next post&hellip;">{{ pagination_prev }}</span>
+                        <span class="left disabled">
+                            <span class="label">{{ pagination_prev }}</span>
+                            <span class="description">There is no next post&hellip;</span>
+                        </span>
                     {% endif %}
                 </div>
             {% endif %}
         </footer>
     </main>
-    <div class="sidebar" role="complementary">
-        <div class="search-posts">
-            <input type="text" placeholder="Search&hellip;">
-        </div>
-        <div class="search-results">
-            <ul>
-                {% for post in site.posts %}
-                    <li>
-                        <a href="{{ post.url }}">{{ post.title }}</a>
-                        {{ post.excerpt | markdownify | strip_html }}
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
+    <section class="sidebar site-search" role="search">
+        <form>
+            <fieldset>
+                <div class="input-group">
+                    <input type="text" placeholder="Search&hellip;" tabindex="1">
+                    <span class="input-group-addon">
+                        <button type="submit" tabindex="2">
+                            <span class="fa fa-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+    <section class="sidebar site-search-results" role="search">
+        <ul>
+            {% for post in site.posts %}
+                <li>
+                    <a href="{{ post.url }}">
+                        <span class="date">{{ article_date | date: "%Y-%m-%d" }}</span>
+                        <span class="title">{{ post.title }}</span>
+                        <span class="excerpt">{{ post.excerpt | markdownify | newline_to_br | replace:'<br />',' ' | strip_html | truncatewords: 20 }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
     {% for script in site.assets.scripts %}
         <script id="{{ script.id }}" src="{{ script.src }}"></script>
         {% if script.id == 'jquery' %}<script>window.jQuery || document.write('<script src="{{ script.alt }}"><\/script>')</script>{% endif %}

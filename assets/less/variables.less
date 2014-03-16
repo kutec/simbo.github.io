@@ -2,69 +2,86 @@
    Colors
    ========================================================================== */
 
-@gray-darker:                   lighten(#000, 13.5%); // #222
-@gray-dark:                     lighten(#000, 20%);   // #333
-@gray:                          lighten(#000, 33.5%); // #555
-@gray-light:                    lighten(#000, 60%);   // #999
-@gray-lighter:                  lighten(#000, 93.5%); // #eee
+@gray-darker:                      lighten(#000, 13.5%); // #222
+@gray-dark:                        lighten(#000, 20%);   // #333
+@gray:                             lighten(#000, 33.5%); // #555
+@gray-light:                       lighten(#000, 60%);   // #999
+@gray-lighter:                     lighten(#000, 93.5%); // #eee
 
 /* =============================================================================
    Typography
    ========================================================================== */
 
-@font-family-sans-serif:        Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:             Georgia, "Times New Roman", Times, serif;
-@font-family-monospace:         Inconsolata, Menlo, Monaco, Consolas, "Courier New", monospace;
-@font-family-base:              @font-family-sans-serif;
+@font-family-base:                 Roboto, sans-serif;
+@font-family-monospace:            "Inconsolata", monospace;
+@font-family-headline:             "Lilita One", sans-serif;
 
-@font-size-xs:                  unit((100/16 * 15),%);
-@font-size-sm:                  unit((100/16 * 16),%);
-@font-size-md:                  unit((100/16 * 17),%);
-@font-size-lg:                  unit((100/16 * 18),%);
+@font-size-multiplier-xs:          15;
+@font-size-multiplier-sm:          16;
+@font-size-multiplier-md:          17;
+@font-size-multiplier-lg:          18;
 
-@line-height-base:              (20/14);
+@font-size-xs:                     unit((100/16 * @font-size-multiplier-xs),%);
+@font-size-sm:                     unit((100/16 * @font-size-multiplier-sm),%);
+@font-size-md:                     unit((100/16 * @font-size-multiplier-md),%);
+@font-size-lg:                     unit((100/16 * @font-size-multiplier-lg),%);
 
-@spacing-vertical:              (1rem * @line-height-base / 2);
+@px-rem-xs:                        (1rem / @font-size-multiplier-xs);
+@px-rem-sm:                        (1rem / @font-size-multiplier-sm);
+@px-rem-md:                        (1rem / @font-size-multiplier-md);
+@px-rem-lg:                        (1rem / @font-size-multiplier-lg);
+
+@line-height-base:                 (20/14);
 
 /* =============================================================================
    Screen sizes
    ========================================================================== */
 
-@screen-xs:                     480px;
-@screen-xs-min:                 @screen-xs;
-@screen-sm:                     768px;
-@screen-sm-min:                 @screen-sm;
-@screen-md:                     992px;
-@screen-md-min:                 @screen-md;
-@screen-lg:                     1200px;
-@screen-lg-min:                 @screen-lg;
-@screen-xl:                     1600px;
-@screen-xl-min:                 @screen-xl;
-@screen-xs-max:                 ( @screen-sm-min - 1 );
-@screen-sm-max:                 ( @screen-md-min - 1 );
-@screen-md-max:                 ( @screen-lg-min - 1 );
-@screen-lg-max:                 ( @screen-xl-min - 1 );
+@screen-xs:                        480px;
+@screen-xs-min:                    @screen-xs;
+@screen-sm:                        768px;
+@screen-sm-min:                    @screen-sm;
+@screen-md:                        992px;
+@screen-md-min:                    @screen-md;
+@screen-lg:                        1200px;
+@screen-lg-min:                    @screen-lg;
+@screen-xl:                        1600px;
+@screen-xl-min:                    @screen-xl;
+@screen-xs-max:                    ( @screen-sm-min - 1 );
+@screen-sm-max:                    ( @screen-md-min - 1 );
+@screen-md-max:                    ( @screen-lg-min - 1 );
+@screen-lg-max:                    ( @screen-xl-min - 1 );
 
 /* =============================================================================
    Measures
    ========================================================================== */
 
-@banner-height:                 50px;
-@sidebar-width:                 28.5%; // of large screen
-@border-radius-small:           2px;
-@border-radius-medium:          4px;
+@spacing-vertical:                 (1rem * @line-height-base / 2);
+
+@banner-height:                    55px;
+@sidebar-width:                    28.5%; // of large screen
+
+@main-padding-sm:                  1rem;
+@main-padding-md:                  1.5rem;
+@main-padding-lg:                  2rem;
+
+@border-radius-small:              2px;
+@border-radius-medium:             4px;
+
+@input-padding-vertical:           .4em;
+@input-padding-horizontal:         .6em;
 
 /* =============================================================================
    Colors
    ========================================================================== */
 
-@font-color-base:               #333;
-@font-color-gray:               #666;
-@hot-pink:                      #fe57a1;
-@link-color:                    #428bca;
-@link-hover-color:              darken(@link-color, 15%);
-@main-background-color:         #0769ad;
-@article-background-color:      #fff;
-@article-meta-background-color: #ddd;
-@box-border-color:              #ddd;
-@box-background-color:          #f5f5f5;
+@font-color-base:                  #333;
+@font-color-gray:                  #666;
+@hot-pink:                         #fe57a1;
+@link-color:                       #428bca;
+@link-hover-color:                 darken(@link-color, 15%);
+@main-background-color:            #333; //#0769ad;
+@article-background-color:         #fff;
+@article-meta-background-color:    #ddd;
+@box-border-color:                 #ddd;
+@box-background-color:             #f5f5f5;

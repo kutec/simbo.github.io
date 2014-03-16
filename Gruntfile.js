@@ -199,6 +199,7 @@ module.exports = function(grunt) {
             js: {
                 files: {
                     'assets/js/scripts.min.js': [
+                        'bower_components/lunr.js/lunr.js',
                         'assets/js/scripts.js'
                     ]
                 },
@@ -280,6 +281,7 @@ module.exports = function(grunt) {
                     '**/*.html',
                     '**/*.xml',
                     '_posts/*.md',
+                    'lunr.data',
                     '_config.yml',
                     '!**/_site/**',
                     '!**/demo/**',

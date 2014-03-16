@@ -1,0 +1,10 @@
+---
+
+---
+{% for post in site.posts %}
+{{ post.title | markdownify | strip_html | newline_to_br | replace:'<br />',' ' | strip_newlines }}
+{{ post.content | markdownify | strip_html | newline_to_br | replace:'<br />',' ' | strip_newlines }}
+{{ post.url }}"
+{{ post.excerpt | markdownify | strip_html | newline_to_br | replace:'<br />',' ' | strip_newlines }}
+{{ post.date | date: "%Y-%m-%d" }}
+{% endfor %}
