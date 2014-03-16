@@ -107,7 +107,7 @@
                 if href.substr(0,4)=='http' and !( ( new RegExp '/'+window.location.host+'/' ).test href )
                     window.open href, '_blank'
                 # load internal content
-                else if history.pushState
+                else if history.pushState and href!=window.location.pathname and href!=window.location
                     loadPage href, true
                 return false
 
