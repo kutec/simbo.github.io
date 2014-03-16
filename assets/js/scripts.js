@@ -111,8 +111,10 @@
         href = $(this).attr('href');
         if (href.substr(0, 4) === 'http' && !((new RegExp('/' + window.location.host + '/')).test(href))) {
           window.open(href, '_blank');
-        } else if (history.pushState && href !== window.location.pathname && href !== window.location) {
+        } else if (history.pushState && !$(this).hasClass('exclude') && href !== window.location.pathname && href !== window.location) {
           loadPage(href, true);
+        } else {
+          return true;
         }
         return false;
       }

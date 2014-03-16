@@ -1,4 +1,4 @@
-        <footer class="site-footer">
+        <nav class="main-footer">
             {% if page.layout == "index" %}
                 {% assign pagination_next = '<span class="fa fa-chevron-left"></span>Older Posts' %}
                 {% assign pagination_prev = 'Newer Posts<span class="fa fa-chevron-right"></span>' %}
@@ -52,7 +52,7 @@
                     {% endif %}
                 </div>
             {% endif %}
-        </footer>
+        </nav>
     </main>
     <section class="sidebar site-search" role="search">
         <form>
@@ -70,7 +70,7 @@
     </section>
     <section class="sidebar site-search-results" role="search">
         <ul>
-            {% for post in site.posts %}
+            {% for post in site.posts limit:10 %}
                 <li>
                     <a href="{{ post.url }}">
                         <span class="date">{{ article_date | date: "%Y-%m-%d" }}</span>
@@ -81,6 +81,13 @@
             {% endfor %}
         </ul>
     </section>
+    <footer class="sidebar site-footer">
+        <ul>
+            <li><a href="/rss.xml" class="exclude" title="RSS Feed"><span class="fa fa-rss"></span></a></li>
+            <li><a href="https://github.com/simbo/simbo.github.io" title="this site @ GitHub"><span class="fa fa-github-alt"></span></a></li>
+            <li><a href="/about.html" title="About this site"><span class="fa fa-info"></span></a></li>
+        </ul>
+    </footer>
     {% for script in site.assets.scripts %}
         <script id="{{ script.id }}" src="{{ script.src }}"></script>
         {% if script.id == 'jquery' %}<script>window.jQuery || document.write('<script src="{{ script.alt }}"><\/script>')</script>{% endif %}

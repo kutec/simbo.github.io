@@ -1,6 +1,6 @@
 {
 	"name": "simbo.github.io",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Simbo's Github Page",
 	"homepage": "https://github.com/simbo/simbo.github.io",
 	"authors": [
@@ -28,9 +28,9 @@
 	],
 	"devDependencies": {
 		"jquery": "2.1.0",
-		"font-awesome": "~4.0.3",
-		"normalize-css": "~3.0.0",
+		"font-awesome": "latest",
+		"normalize-css": "latest",
 		"pygments-css": "richleland/pygments-css",
-		"lunr.js": "~0.4.5"
+		"lunr.js": "latest"
 	}
 }
