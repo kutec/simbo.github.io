@@ -29,7 +29,7 @@
                     by <span class="fn">{{ site.author.name }}</span>
                 </p>
                 {% if page.layout != "page" %}
-                    <p class="comments-link" data-url="{{ article_url }}">
+                    <p class="comments-link" data-url="{{ site.url }}{{ article_url }}">
                         <a href="{{ article_url }}#disqus_thread">Write a comment</a>
                     </p>
                 {% endif %}
