@@ -45,8 +45,11 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="simbo.github.io">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="/rss.xml">
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="/atom.xml">
+    <meta property="og:image" content="{{ site.author.gravatar }}?s=200">
+    <link rel="apple-touch-icon" href="{{ site.author.gravatar }}?s=144">
+    <link rel="icon" href="{{ site.author.gravatar }}?s=32">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ site.url }}/rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="{{ site.url }}/atom.xml">
 </head>
 <body>
     <header class="banner">

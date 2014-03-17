@@ -73,10 +73,11 @@ assets:
 title: Simbo's Log
 description: Notes on living in front of a screen
 author:
-  name:    Simon Lepel
-  email:   hallo@simonlepel.de
-  github:  simbo
-  twitter: simbo23
+  name:     Simon Lepel
+  email:    hallo@simonlepel.de
+  github:   simbo
+  twitter:  simbo23
+  gravatar: http://www.gravatar.com/avatar/6c78bcb360829e4053ed4cbb9ed06d3e
 
 url:             http://simbo.github.io
 archive_path:    /archive.html
