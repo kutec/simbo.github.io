@@ -113,7 +113,7 @@ module.exports = function(grunt) {
                     sourceMap: true,
                     outputSourceFiles: true,
                     report: 'min',
-                    compress: false,
+                    compress: true,
                     sourceMapURL: 'styles.min.css.map',
                     sourceMapFilename: 'assets/css/styles.min.css.map'
                 },
