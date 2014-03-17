@@ -279,8 +279,8 @@ module.exports = function(grunt) {
             jekyll: {
                 files: [
                     '**/*.html',
+                    '**/*.md',
                     '**/*.xml',
-                    '_posts/*.md',
                     'lunr.data',
                     '_config.yml',
                     '!**/_site/**',
