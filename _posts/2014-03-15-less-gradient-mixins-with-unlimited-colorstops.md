@@ -10,9 +10,9 @@ I also suggested them to be included in Bootstrap as their own mixins only allow
 
 Although these days Autoprefixer handles vendor prefixing for gradients and all other stuff, it doesn't provide alternatives for IE.
 
-Further more using those mixins feels mor comfortable and convinient to me.
+Further more, using those mixins feels more comfortable and convinient to me.
 
-So here's an example for vertical gradient with four colors:
+So here's an example for a vertical gradient with four colors:
 
 ```css
 #gradient > .vertical(
@@ -23,7 +23,7 @@ So here's an example for vertical gradient with four colors:
 );
 ```
 
-And here the mixins:
+And here the mixins for vertical, horizontal, directional, radial and striped gradients:
 
 ```css
 #gradient {
