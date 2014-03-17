@@ -2,7 +2,7 @@
 layout: page
 title: About this site
 ---
-This site is intended as some kind of notebook for myself to keep track and share.
+This site is intended as some kind of notebook for myself to keep track and share. [Keyboard shortcuts](/shortcuts.html) can be used to navigate faster.
 
 You can find more information about me on [my website](http://simonlepel.de).
 

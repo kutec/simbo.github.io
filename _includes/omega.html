@@ -60,7 +60,7 @@
                 <div class="input-group">
                     <input type="text" placeholder="Search&hellip;" tabindex="1">
                     <span class="input-group-addon">
-                        <button type="submit" tabindex="2">
+                        <button type="submit">
                             <span class="fa fa-search"></span>
                         </button>
                     </span>
@@ -72,7 +72,7 @@
         <ul>
             {% for post in site.posts limit:10 %}
                 <li>
-                    <a href="{{ post.url }}">
+                    <a href="{{ post.url }}" tabindex="2">
                         <span class="date">{{ article_date | date: "%Y-%m-%d" }}</span>
                         <span class="title">{{ post.title }}</span>
                         <span class="excerpt">{{ post.excerpt | markdownify | newline_to_br | replace:'<br />',' ' | strip_html | truncatewords: 20 }}</span>
@@ -83,8 +83,9 @@
     </section>
     <footer class="sidebar site-footer">
         <ul>
+            <li><a href="/shortcuts.html" title="Keyboard shortcuts for navigation"><span class="fa fa-keyboard-o"></span></a></li>
             <li><a href="/rss.xml" class="exclude" title="RSS Feed"><span class="fa fa-rss"></span></a></li>
-            <li><a href="https://github.com/simbo/simbo.github.io" title="this site @ GitHub"><span class="fa fa-github-alt"></span></a></li>
+            <li><a href="https://github.com/simbo/simbo.github.io" title="This site on GitHub"><span class="fa fa-github-alt"></span></a></li>
             <li><a href="/about.html" title="About this site"><span class="fa fa-info"></span></a></li>
         </ul>
     </footer>

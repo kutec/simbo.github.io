@@ -15,10 +15,25 @@
         $('.site-search').each ->
             $form = $(this).find('form')
             $input = $form.find('input')
-            $list = $('.site-search-results').find('ul')
+            $list = $('.site-search-results ul')
             index = null
             indexData = null
             reqRunning = false
+
+            # mark current page in search results
+            $list.on
+                markCurrent: ->
+                    $list.find('a').each ->
+                        $a = $(this).removeClass 'current'
+                        href = $a.attr 'href'
+                        if href==window.location.pathname or href==window.location
+                            $a.addClass 'current'
+            .trigger 'markCurrent'
+
+            # show sidebar when searchfield is focussed
+            $input.on
+                focus: ->
+                    $('body').addClass 'sidebar-expanded'
 
             # build search index from lunr.data
             buildIndex = ->
@@ -74,22 +89,25 @@
                     if results.length==0
                         $list.append $('<li class="no-results">Nothing found.</li>')
                     else
-                        $.each results, ->
-                            $list.append $('<li/>').append $('<a href="'+this.url+'">').append [
+                        $.each results, (i) ->
+                            $list.append $('<li/>').append $('<a href="'+this.url+'" tabindex="2"/>').append [
                                 $('<span class="date"/>').html(this.date)[0]
                                 $('<span class="title"/>').html(this.title)[0]
                                 $('<span class="excerpt"/>').html(this.excerpt)[0]
                             ]
+                    $list.trigger 'markCurrent'
                 $input.removeClass 'loading'
                 return
 
             # bind search events
             $form.on
                 submit: ->
-                    if !index
-                        buildIndex()
-                    else
-                        search()
+                    if !$input.data('last-val') or $input.data('last-val')!=$input.val()
+                        $input.data 'last-val', $input.val()
+                        if !index
+                            buildIndex()
+                        else
+                            search()
                     return false
             $input.on
                 change: ->
@@ -102,25 +120,26 @@
 
         $(document).on
             click: ->
-                href = $(this).attr 'href'
+                $a = $(this)
+                href = $a.attr 'href'
                 # open external links in new window/tab
-                if href.substr(0,4)=='http' and !( ( new RegExp '/'+window.location.host+'/' ).test href )
+                if href.substr(0,6)=='/demo/' or $a.hasClass('external') or ( href.substr(0,4)=='http' and !((new RegExp '/'+window.location.host+'/').test href) )
                     window.open href, '_blank'
                 # load internal content
-                else if history.pushState and !$(this).hasClass('exclude') and href!=window.location.pathname and href!=window.location
-                    loadPage href, true
+                else if history.pushState and !$a.hasClass('exclude')
+                    if !((href==window.location.pathname) or (href==window.location))
+                        loadPage href, true
                 else
                     return true
                 return false
-
-        , 'a[href]'
+        , 'a'
 
         #--- history manipulation
 
         if history.pushState
 
             # load content into page
-            loadPage = (url,push) ->
+            loadPage = (url, push) ->
                 $.ajax
                     url: url
                     dataType: 'html'
@@ -133,8 +152,10 @@
                             history.pushState {url: url}, $title.html(), url
                         $('title').replaceWith $title
                         $('main').replaceWith $main
+                        $('.site-search-results ul').trigger 'markCurrent'
+                        $('body').removeClass 'sidebar-expanded'
                     error: (XMLHttpRequest, textStatus, errorThrown) ->
-                        console.debug textStatus
+                        # console.debug textStatus
                     complete: ->
 
             # set initial history state
@@ -146,6 +167,55 @@
                     state = ev.originalEvent.state
                     if state
                         loadPage state.url, false
+
+        #--- keyboard shortcuts
+
+        $(window).on
+            keypress: (ev) ->
+                if $(':focus').filter(':input').not(':button').length==0 and !(ev.altKey || ev.shiftKey || ev.ctrlKey || ev.metaKey)
+                    switch ev.which
+                        when 115,83 # S
+                            $('.site-search input').focus()
+                        when 112,80 # P
+                            $('body').removeClass 'sidebar-expanded'
+                            $('.pagination .left').click()
+                        when 110,78 # N
+                            $('body').removeClass 'sidebar-expanded'
+                            $('.pagination .right').click()
+                        when 120,88 # X
+                            $('body').removeClass 'sidebar-expanded'
+                        else
+                            console.debug ev.which
+                            return true
+                    return false
+                return true
+
+        #--- disqus comment counts
+
+        disqusPublicKey = 'YSZnw4POHBZjSybubISZY3CB22E4hemvlEFUgNkByZhQxN0BE1AR4DGUkN0NIRmQ'
+        disqusShortname = 'simboslog'
+        disqusUrls = []
+
+        $('body').on
+            countComments: ->
+                disqusUrls = []
+                commentsLinks = $('.comments-link')
+                commentsLinks.each ->
+                    disqusUrls.push $(this).data('url')
+                $.ajax
+                    type: 'GET'
+                    url: 'https://disqus.com/api/3.0/threads/set.jsonp'
+                    data:
+                        api_key: disqusPublicKey
+                        forum: disqusShortname
+                        thread: disqusUrls
+                    cache: false
+                    dataType: 'jsonp'
+                    success: (data) ->
+                        $.each data.response, ->
+                            commentsLinks.filter('[data-url="'+this.link+'"]').html this.posts+' comments'
+        .trigger 'countComments'
+
 
         #--- end of dom-ready
 

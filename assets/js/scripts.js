@@ -1,6 +1,6 @@
 (function($) {
   return $(document).ready(function() {
-    var loadPage;
+    var disqusPublicKey, disqusShortname, disqusUrls, loadPage;
     $('.sidebar-toggle:first').on({
       click: function(ev) {
         ev.preventDefault;
@@ -11,10 +11,27 @@
       var $form, $input, $list, buildIndex, index, indexData, reqRunning, search;
       $form = $(this).find('form');
       $input = $form.find('input');
-      $list = $('.site-search-results').find('ul');
+      $list = $('.site-search-results ul');
       index = null;
       indexData = null;
       reqRunning = false;
+      $list.on({
+        markCurrent: function() {
+          return $list.find('a').each(function() {
+            var $a, href;
+            $a = $(this).removeClass('current');
+            href = $a.attr('href');
+            if (href === window.location.pathname || href === window.location) {
+              return $a.addClass('current');
+            }
+          });
+        }
+      }).trigger('markCurrent');
+      $input.on({
+        focus: function() {
+          return $('body').addClass('sidebar-expanded');
+        }
+      });
       buildIndex = function() {
         if (!reqRunning) {
           $.ajax({
@@ -78,19 +95,23 @@
           if (results.length === 0) {
             $list.append($('<li class="no-results">Nothing found.</li>'));
           } else {
-            $.each(results, function() {
-              return $list.append($('<li/>').append($('<a href="' + this.url + '">').append([$('<span class="date"/>').html(this.date)[0], $('<span class="title"/>').html(this.title)[0], $('<span class="excerpt"/>').html(this.excerpt)[0]])));
+            $.each(results, function(i) {
+              return $list.append($('<li/>').append($('<a href="' + this.url + '" tabindex="2"/>').append([$('<span class="date"/>').html(this.date)[0], $('<span class="title"/>').html(this.title)[0], $('<span class="excerpt"/>').html(this.excerpt)[0]])));
             });
           }
+          $list.trigger('markCurrent');
         }
         $input.removeClass('loading');
       };
       $form.on({
         submit: function() {
-          if (!index) {
-            buildIndex();
-          } else {
-            search();
+          if (!$input.data('last-val') || $input.data('last-val') !== $input.val()) {
+            $input.data('last-val', $input.val());
+            if (!index) {
+              buildIndex();
+            } else {
+              search();
+            }
           }
           return false;
         }
@@ -107,18 +128,21 @@
     });
     $(document).on({
       click: function() {
-        var href;
-        href = $(this).attr('href');
-        if (href.substr(0, 4) === 'http' && !((new RegExp('/' + window.location.host + '/')).test(href))) {
+        var $a, href;
+        $a = $(this);
+        href = $a.attr('href');
+        if (href.substr(0, 6) === '/demo/' || $a.hasClass('external') || (href.substr(0, 4) === 'http' && !((new RegExp('/' + window.location.host + '/')).test(href)))) {
           window.open(href, '_blank');
-        } else if (history.pushState && !$(this).hasClass('exclude') && href !== window.location.pathname && href !== window.location) {
-          loadPage(href, true);
+        } else if (history.pushState && !$a.hasClass('exclude')) {
+          if (!((href === window.location.pathname) || (href === window.location))) {
+            loadPage(href, true);
+          }
         } else {
           return true;
         }
         return false;
       }
-    }, 'a[href]');
+    }, 'a');
     if (history.pushState) {
       loadPage = function(url, push) {
         return $.ajax({
@@ -136,18 +160,18 @@
               }, $title.html(), url);
             }
             $('title').replaceWith($title);
-            return $('main').replaceWith($main);
+            $('main').replaceWith($main);
+            $('.site-search-results ul').trigger('markCurrent');
+            return $('body').removeClass('sidebar-expanded');
           },
-          error: function(XMLHttpRequest, textStatus, errorThrown) {
-            return console.debug(textStatus);
-          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {},
           complete: function() {}
         });
       };
       history.replaceState({
         url: location.href
       }, $('title').html(), location.href);
-      return $(window).on({
+      $(window).on({
         popstate: function(ev) {
           var state;
           state = ev.originalEvent.state;
@@ -157,6 +181,66 @@
         }
       });
     }
+    $(window).on({
+      keypress: function(ev) {
+        if ($(':focus').filter(':input').not(':button').length === 0 && !(ev.altKey || ev.shiftKey || ev.ctrlKey || ev.metaKey)) {
+          switch (ev.which) {
+            case 115:
+            case 83:
+              $('.site-search input').focus();
+              break;
+            case 112:
+            case 80:
+              $('body').removeClass('sidebar-expanded');
+              $('.pagination .left').click();
+              break;
+            case 110:
+            case 78:
+              $('body').removeClass('sidebar-expanded');
+              $('.pagination .right').click();
+              break;
+            case 120:
+            case 88:
+              $('body').removeClass('sidebar-expanded');
+              break;
+            default:
+              console.debug(ev.which);
+              return true;
+          }
+          return false;
+        }
+        return true;
+      }
+    });
+    disqusPublicKey = 'YSZnw4POHBZjSybubISZY3CB22E4hemvlEFUgNkByZhQxN0BE1AR4DGUkN0NIRmQ';
+    disqusShortname = 'simboslog';
+    disqusUrls = [];
+    return $('body').on({
+      countComments: function() {
+        var commentsLinks;
+        disqusUrls = [];
+        commentsLinks = $('.comments-link');
+        commentsLinks.each(function() {
+          return disqusUrls.push($(this).data('url'));
+        });
+        return $.ajax({
+          type: 'GET',
+          url: 'https://disqus.com/api/3.0/threads/set.jsonp',
+          data: {
+            api_key: disqusPublicKey,
+            forum: disqusShortname,
+            thread: disqusUrls
+          },
+          cache: false,
+          dataType: 'jsonp',
+          success: function(data) {
+            return $.each(data.response, function() {
+              return commentsLinks.filter('[data-url="' + this.link + '"]').html(this.posts + ' comments');
+            });
+          }
+        });
+      }
+    }).trigger('countComments');
   });
 })(jQuery);
 
