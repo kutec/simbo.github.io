@@ -8,7 +8,7 @@ You can use some keyboard shortcuts to navigate through this site:
 
 <kbd>S</kbd> or first <kbd>Tab</kbd> sets focus on the search field (also shows the sidebar on small viewports).
 
-Hit <kbd>Tab</kbd> in the search field to navigate through search results.
+Hit <kbd>Tab</kbd> afterwards to navigate through search results.
 
 Press <kbd>Enter</kbd> to open the selected search result.
 
