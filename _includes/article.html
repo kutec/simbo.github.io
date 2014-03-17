@@ -29,7 +29,7 @@
                     by <span class="fn">{{ site.author.name }}</span>
                 </p>
                 {% if page.layout != "page" %}
-                    <p class="comments-link" data-url="{{ site.url }}{{ article_url }}">
+                    <p class="comments-link" data-disqus-url="{{ site.url }}{{ article_url }}">
                         <a href="{{ article_url }}#disqus_thread">Write a comment</a>
                     </p>
                 {% endif %}
@@ -43,6 +43,7 @@
         <aside>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
+                var disqus_developer = window.location.hostname=='localhost' ? 1 : 0;
                 var disqus_shortname = 'simboslog';
                 var disqus_identifier = '{{ article_url }}';
                 var disqus_url = '{{ site.url }}{{ article_url }}';

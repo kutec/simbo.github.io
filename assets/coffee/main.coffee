@@ -192,29 +192,29 @@
 
         #--- disqus comment counts
 
-        disqusPublicKey = 'YSZnw4POHBZjSybubISZY3CB22E4hemvlEFUgNkByZhQxN0BE1AR4DGUkN0NIRmQ'
-        disqusShortname = 'simboslog'
-        disqusUrls = []
+        # disqusPublicKey = 'YSZnw4POHBZjSybubISZY3CB22E4hemvlEFUgNkByZhQxN0BE1AR4DGUkN0NIRmQ'
+        # disqusShortname = 'simboslog'
+        # disqusUrls = []
 
-        $('body').on
-            countComments: ->
-                disqusUrls = []
-                commentsLinks = $('.comments-link')
-                commentsLinks.each ->
-                    disqusUrls.push $(this).data('url')
-                $.ajax
-                    type: 'GET'
-                    url: 'https://disqus.com/api/3.0/threads/set.jsonp'
-                    data:
-                        api_key: disqusPublicKey
-                        forum: disqusShortname
-                        thread: disqusUrls
-                    cache: false
-                    dataType: 'jsonp'
-                    success: (data) ->
-                        $.each data.response, ->
-                            commentsLinks.filter('[data-url="'+this.link+'"]').html this.posts+' comments'
-        .trigger 'countComments'
+        # $('body').on
+        #     countComments: ->
+        #         disqusUrls = []
+        #         commentsLinks = $('.comments-link')
+        #         commentsLinks.each ->
+        #             disqusUrls.push $(this).data('url')
+        #         $.ajax
+        #             type: 'GET'
+        #             url: 'https://disqus.com/api/3.0/threads/set.jsonp'
+        #             data:
+        #                 api_key: disqusPublicKey
+        #                 forum: disqusShortname
+        #                 thread: disqusUrls
+        #             cache: false
+        #             dataType: 'jsonp'
+        #             success: (data) ->
+        #                 $.each data.response, ->
+        #                     commentsLinks.filter('[data-disqus-url="'+this.link+'"]').html this.posts+' comments'
+        # .trigger 'countComments'
 
 
         #--- end of dom-ready

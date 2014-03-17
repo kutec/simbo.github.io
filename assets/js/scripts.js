@@ -1,6 +1,6 @@
 (function($) {
   return $(document).ready(function() {
-    var disqusPublicKey, disqusShortname, disqusUrls, loadPage;
+    var loadPage;
     $('.sidebar-toggle:first').on({
       click: function(ev) {
         ev.preventDefault;
@@ -181,7 +181,7 @@
         }
       });
     }
-    $(window).on({
+    return $(window).on({
       keypress: function(ev) {
         if ($(':focus').filter(':input').not(':button').length === 0 && !(ev.altKey || ev.shiftKey || ev.ctrlKey || ev.metaKey)) {
           switch (ev.which) {
@@ -212,35 +212,6 @@
         return true;
       }
     });
-    disqusPublicKey = 'YSZnw4POHBZjSybubISZY3CB22E4hemvlEFUgNkByZhQxN0BE1AR4DGUkN0NIRmQ';
-    disqusShortname = 'simboslog';
-    disqusUrls = [];
-    return $('body').on({
-      countComments: function() {
-        var commentsLinks;
-        disqusUrls = [];
-        commentsLinks = $('.comments-link');
-        commentsLinks.each(function() {
-          return disqusUrls.push($(this).data('url'));
-        });
-        return $.ajax({
-          type: 'GET',
-          url: 'https://disqus.com/api/3.0/threads/set.jsonp',
-          data: {
-            api_key: disqusPublicKey,
-            forum: disqusShortname,
-            thread: disqusUrls
-          },
-          cache: false,
-          dataType: 'jsonp',
-          success: function(data) {
-            return $.each(data.response, function() {
-              return commentsLinks.filter('[data-url="' + this.link + '"]').html(this.posts + ' comments');
-            });
-          }
-        });
-      }
-    }).trigger('countComments');
   });
 })(jQuery);
 
