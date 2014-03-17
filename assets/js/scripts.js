@@ -221,7 +221,7 @@
         disqusUrls = [];
         commentsLinks = $('.comments-link');
         commentsLinks.each(function() {
-          return disqusUrls.push($(this).data('url'));
+          return disqusUrls.push('link:' + $(this).data('url'));
         });
         return $.ajax({
           type: 'GET',
@@ -235,7 +235,7 @@
           dataType: 'jsonp',
           success: function(data) {
             return $.each(data.response, function() {
-              return commentsLinks.filter('[data-disqus-url="' + this.link + '"]').html(this.posts + ' comments');
+              return commentsLinks.filter('[data-url="' + this.link + '"]').find('.label').html(this.posts === 0 ? 'Write a comment' : this.posts + ' comment' + (this.posts > 1 ? 's' : void 0));
             });
           }
         });

@@ -29,8 +29,8 @@
                     by <span class="fn">{{ site.author.name }}</span>
                 </p>
                 {% if page.layout != "page" %}
-                    <p class="comments-link" data-disqus-url="{{ site.url }}{{ article_url }}">
-                        <a href="{{ article_url }}#disqus_thread">Write a comment</a>
+                    <p class="comments-link" data-url="{{ site.url }}{{ article_url }}">
+                        <a href="{{ article_url }}#disqus_thread"><span class="fa fa-comments"></span><span class="label">Write a comment</span></a>
                     </p>
                 {% endif %}
             {% endif %}

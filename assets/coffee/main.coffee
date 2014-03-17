@@ -201,7 +201,7 @@
                 disqusUrls = []
                 commentsLinks = $('.comments-link')
                 commentsLinks.each ->
-                    disqusUrls.push $(this).data('url')
+                    disqusUrls.push 'link:'+$(this).data('url')
                 $.ajax
                     type: 'GET'
                     url: 'https://disqus.com/api/3.0/threads/set.jsonp'
@@ -213,7 +213,7 @@
                     dataType: 'jsonp'
                     success: (data) ->
                         $.each data.response, ->
-                            commentsLinks.filter('[data-disqus-url="'+this.link+'"]').html this.posts+' comments'
+                            commentsLinks.filter('[data-url="'+this.link+'"]').find('.label').html( if this.posts==0 then 'Write a comment' else this.posts+' comment'+( if this.posts>1 then 's' ) )
         .trigger 'countComments'
 
 

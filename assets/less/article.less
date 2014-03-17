@@ -32,13 +32,33 @@ article {
 
         .entry-meta {
             .small;
-            color: #666;
-            font-weight: 300;
+            color: @font-color-gray;
 
-            > * + * {
-                display: inline;
+            > * {
+                display: inline-block;
                 margin: 0;
-                padding-left: .75rem;
+                white-space: nowrap;
+                padding: .2rem .75rem .2rem 0;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+                a {
+                    color: @font-color-gray;
+
+                    &:hover {
+                        color: darken(@font-color-gray, 10%);
+                    }
+
+                }
+            }
+
+            .author {
+                position: absolute;
+                bottom: .75rem;
+                line-height: 1;
+                padding: 0;
             }
 
             .fa {
@@ -72,6 +92,11 @@ article {
 
             .entry-meta {
                 padding: .4rem 1rem;
+
+                .author {
+                    right: 1rem;
+                }
+
             }
 
         }
@@ -95,6 +120,11 @@ article {
 
             .entry-meta {
                 padding: .4rem 1.5rem;
+
+                .author {
+                    right: 1.5rem;
+                }
+
             }
 
         }
