@@ -10,7 +10,7 @@ I also [suggested](https://github.com/twbs/bootstrap/issues/12973) them to be in
 
 Although these days Autoprefixer handles vendor prefixing for gradients and all other stuff, it doesn't provide alternatives for IE.
 
-Further more, using those mixins feels more comfortable and convinient to me.
+Further more, using those mixins feels more comfortable and convenient to me.
 
 So here's an example for a vertical gradient with four colors:
 
