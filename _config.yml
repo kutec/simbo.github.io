@@ -86,16 +86,6 @@ tags_path:       /tags.html
 atom_path:       /atom.xml
 rss_path:        /rss.xml
 
-# ==============================================================================
-# Demos
-# ==============================================================================
-
-demos:
-  -
-    name:   HAL 9000
-    url:    /demo/hal9000/
-
-
 # future:      true
 # show_drafts: nil
 # limit_posts: 0
