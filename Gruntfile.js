@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                 'assets/js/vendor/*'
             ],
             css: [
-                'assets/css/*',
+                'assets/css/*'
             ],
             js: [
                 'assets/js/*',
