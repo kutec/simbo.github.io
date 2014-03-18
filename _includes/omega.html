@@ -89,7 +89,7 @@
         </ul>
     </footer>
     {% for script in site.assets.scripts %}
-        <script id="{{ script.id }}" src="{{ script.src }}"></script>
+        <script id="{{ script.id }}" src="{{ script.src }}{% if script.append_version %}?v={{ site.time | date:"%y%m%d%H%M%S" }}{% endif %}"></script>
         {% if script.id == 'jquery' %}<script>window.jQuery || document.write('<script src="{{ script.alt }}"><\/script>')</script>{% endif %}
     {% endfor %}
 </body>

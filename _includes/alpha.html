@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} | {{ site.description }}{% endif %}</title>
     {% for style in site.assets.styles %}
-        <link id="{{ style.id }}" href="{{ style.src }}" rel="stylesheet" type="text/css">
+        <link id="{{ style.id }}" href="{{ style.src }}{% if style.append_version %}?v={{ site.time | date:"%y%m%d%H%M%S" }}{% endif %}" rel="stylesheet" type="text/css">
     {% endfor %}
     {% if page.layout == "index" %}
         {% if paginator.next_page %}
