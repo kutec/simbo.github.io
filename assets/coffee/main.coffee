@@ -6,9 +6,9 @@
         #--- Button: toggle sidebar
 
         $('.sidebar-toggle:first').on
-            click: (ev) ->
-                ev.preventDefault
+            click: ->
                 $('body').toggleClass 'sidebar-expanded'
+                return false
 
         #--- lunr search integration
 
@@ -184,8 +184,10 @@
                             $('.pagination .right').click()
                         when 120,88 # X
                             $('body').removeClass 'sidebar-expanded'
+                        when 101,69 # E
+                            $('body').toggleClass 'edit-mode'
                         else
-                            console.debug ev.which
+                            # console.debug ev.which
                             return true
                     return false
                 return true

@@ -3,11 +3,13 @@
     {% assign article_date = post.date %}
     {% assign article_content = post.content %}
     {% assign article_url = post.url %}
+    {% assign article_path = post.path %}
 {% elsif page.layout == "post" or page.layout == "page" %}
     {% assign article_title = page.title %}
     {% assign article_date = page.date %}
     {% assign article_content = content %}
     {% assign article_url = page.url %}
+    {% assign article_path = page.path %}
 {% endif %}
 <article class="hentry">
     <header>
@@ -24,16 +26,20 @@
                     <span class="fa fa-calendar"></span>
                     {{ article_date | date: "%A, %d %B %Y" }}
                 </time>
-                <p class="byline author vcard">
+                <span class="byline author vcard">
                     <span class="fa fa-pencil"></span>
                     by <span class="fn">{{ site.author.name }}</span>
-                </p>
+                </span>
                 {% if page.layout != "page" %}
-                    <p class="comments-link" data-url="{{ site.url }}{{ article_url }}">
+                    <span class="comments-link" data-url="{{ site.url }}{{ article_url }}">
                         <a href="{{ article_url }}#disqus_thread"><span class="fa fa-comments"></span><span class="label">Write a comment</span></a>
-                    </p>
+                    </span>
                 {% endif %}
             {% endif %}
+            <span class="edit">
+                <span class="fa fa-pencil-square-o"></span>
+                <a href="https://github.com/simbo/simbo.github.io/edit/master/{{ article_path }}">Edit</a>
+            </span>
         </div>
     </header>
     <div class="entry-content">

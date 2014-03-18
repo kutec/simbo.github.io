@@ -14,4 +14,6 @@ Press <kbd>Enter</kbd> to open the selected search result.
 
 <kbd>X</kbd> hides the sidebar on small viewports.
 
+<kbd>E</kbd> toggles *Edit* links in post/page headers.
+
 To avoid conflicts, all shortcuts only work without active modifier keys and when focus is not on a text input.

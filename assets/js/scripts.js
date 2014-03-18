@@ -2,9 +2,9 @@
   return $(document).ready(function() {
     var disqusPublicKey, disqusShortname, disqusUrls, loadPage;
     $('.sidebar-toggle:first').on({
-      click: function(ev) {
-        ev.preventDefault;
-        return $('body').toggleClass('sidebar-expanded');
+      click: function() {
+        $('body').toggleClass('sidebar-expanded');
+        return false;
       }
     });
     $('.site-search').each(function() {
@@ -203,8 +203,11 @@
             case 88:
               $('body').removeClass('sidebar-expanded');
               break;
+            case 101:
+            case 69:
+              $('body').toggleClass('edit-mode');
+              break;
             default:
-              console.debug(ev.which);
               return true;
           }
           return false;
