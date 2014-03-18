@@ -169,24 +169,15 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {
-                'asi'      : true,
-                'boss'     : true,
-                'browser'  : true,
-                'debug'    : true,
-                'devel'    : true,
-                'eqeqeq'   : false,
-                'eqnull'   : true,
-                'expr'     : true,
-                'indent'   : 2,
-                'laxbreak' : true,
-                'quotmark' : 'single',
-                'validthis': true,
-                '-W099'    : true
+                'indent': 2
             },
             js: {
                 src: 'assets/js/scripts.js'
             },
             grunt: {
+                options: {
+                    'indent': 4
+                },
                 src: 'Gruntfile.js'
             }
         },
