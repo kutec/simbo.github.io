@@ -67,7 +67,7 @@
                                     content: d.content
                                     id: i
                         error: (XMLHttpRequest, textStatus, errorThrown) ->
-                            #console.debug textStatus
+                            # console.debug textStatus
                         complete: ->
                             reqRunning = false
                             $input.removeClass 'loading'

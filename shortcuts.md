@@ -10,6 +10,8 @@ You can use some keyboard shortcuts to navigate through this site:
 
 Hit <kbd>Tab</kbd> afterwards to navigate through search results.
 
+Use <kbd>Shift</kbd> + <kbd>Tab</kbd> to navigate backwards.
+
 Press <kbd>Enter</kbd> to open the selected search result.
 
 <kbd>X</kbd> hides the sidebar on small viewports.
