@@ -2,7 +2,7 @@
 layout: post
 title: ls aliases for OS X
 ---
-Some useful aliasesssss for <samp>ls</samp> under Mac OS X.
+Some useful aliases for <samp>ls</samp> under Mac OS X.
 
 ```bash
 alias ls="ls -G"        # add colors
