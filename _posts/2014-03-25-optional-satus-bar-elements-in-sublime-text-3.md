@@ -12,4 +12,4 @@ Since Sublime Text 3 Build 3057, you have to set some options to show and change
 }
 ```
 
-Additionally, the plugin [EncodingHelper](https://sublime.wbond.net/packages/EncodingHelper) brings more functions to manage encodings in Sublime.
+Additionally, the plugin [EncodingHelper](https://sublime.wbond.net/packages/EncodingHelper) brings more functions for managing encodings in Sublime.
